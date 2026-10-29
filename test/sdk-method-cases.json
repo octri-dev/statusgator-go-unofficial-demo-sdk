@@ -1,0 +1,3511 @@
+{
+  "cases": [
+    {
+      "id": "createBoard:CreateBoard",
+      "operationId": "createBoard",
+      "methodName": "CreateBoard",
+      "namespace": [
+        "boards"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "Board": {
+          "name": "Cloud Services",
+          "user_ids": [
+            "k2x9m7nPqR"
+          ]
+        }
+      },
+      "wireNames": {
+        "Board": "board"
+      },
+      "argumentOrder": [
+        "Board"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "m2z5x3nOJa",
+            "name": "Cloud Services",
+            "public_token": "abc123def456",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createCustomMonitor:CreateCustomMonitor",
+      "operationId": "createCustomMonitor",
+      "methodName": "CreateCustomMonitor",
+      "namespace": [
+        "customMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Name": "My Custom Service",
+        "Description": "Internal service we manually update",
+        "Metadata": {},
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Name": "name",
+        "Description": "description",
+        "Metadata": "metadata",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Name",
+        "Description",
+        "Metadata",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Custom Monitor",
+            "description": "Custom service we manually update",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createCustomMonitor:CreateCustomMonitor:422",
+      "operationId": "createCustomMonitor",
+      "methodName": "CreateCustomMonitor",
+      "namespace": [
+        "customMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Name": "My Custom Service",
+        "Description": "Internal service we manually update",
+        "Metadata": {},
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Name": "name",
+        "Description": "description",
+        "Metadata": "metadata",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Name",
+        "Description",
+        "Metadata",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 422,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createIncident:CreateIncident",
+      "operationId": "createIncident",
+      "methodName": "CreateIncident",
+      "namespace": [
+        "incidents"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Incident": {
+          "name": "Database outage",
+          "details": "We are currently experiencing a database outage affecting all services. Our team is actively working to resolve the issue. We will provide updates as soon as possible.",
+          "started_at": "2023-10-01T12:00:00Z",
+          "ended_at": "2023-10-01T14:00:00Z",
+          "will_start_at": "2023-10-05T01:00:00Z",
+          "will_end_at": "2023-10-05T03:00:00Z",
+          "phase": "investigating",
+          "severity": "major",
+          "notify_subscribers": true,
+          "monitors": [
+            {
+              "id": "sadfkfefw",
+              "status": "down"
+            },
+            {
+              "id": "dfeweqes",
+              "status": "down"
+            }
+          ]
+        }
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Incident": "incident"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Incident"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "abc123def",
+            "name": "Database outage",
+            "details": "We are currently experiencing a database outage affecting all services.",
+            "started_at": "2023-10-01T12:00:00Z",
+            "resolved_at": "2023-10-01T14:30:00Z",
+            "phase": "investigating",
+            "severity": "major",
+            "will_start_at": "2023-10-02T02:00:00Z",
+            "will_end_at": "2023-10-02T04:00:00Z",
+            "auto_complete_maintenance": false,
+            "board_id": "lh16iGAYKI",
+            "duration": 150.5,
+            "maintenance_duration": 120,
+            "scheduled_maintenance": false,
+            "resolved_or_completed": false,
+            "created_at": "2023-10-01T11:45:00Z",
+            "updated_at": "2023-10-01T12:15:00Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createIncident:CreateIncident:422",
+      "operationId": "createIncident",
+      "methodName": "CreateIncident",
+      "namespace": [
+        "incidents"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Incident": {
+          "name": "Database outage",
+          "details": "We are currently experiencing a database outage affecting all services. Our team is actively working to resolve the issue. We will provide updates as soon as possible.",
+          "started_at": "2023-10-01T12:00:00Z",
+          "ended_at": "2023-10-01T14:00:00Z",
+          "will_start_at": "2023-10-05T01:00:00Z",
+          "will_end_at": "2023-10-05T03:00:00Z",
+          "phase": "investigating",
+          "severity": "major",
+          "notify_subscribers": true,
+          "monitors": [
+            {
+              "id": "sadfkfefw",
+              "status": "down"
+            },
+            {
+              "id": "dfeweqes",
+              "status": "down"
+            }
+          ]
+        }
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Incident": "incident"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Incident"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 422,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createIncidentUpdate:CreateIncidentUpdate",
+      "operationId": "createIncidentUpdate",
+      "methodName": "CreateIncidentUpdate",
+      "namespace": [
+        "incidentUpdates"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "IncidentId": "abc123def",
+        "Phase": "investigating",
+        "Severity": "major",
+        "Details": "We have identified the root cause and are working on a fix.",
+        "PostedAt": "2023-10-01T12:30:00Z",
+        "NotifySubscribers": true,
+        "Monitors": [
+          {
+            "id": "sadfkfefw",
+            "status": "down"
+          },
+          {
+            "id": "dfeweqes",
+            "status": "warn"
+          }
+        ]
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "IncidentId": "incident_id",
+        "Phase": "phase",
+        "Severity": "severity",
+        "Details": "details",
+        "PostedAt": "posted_at",
+        "NotifySubscribers": "notify_subscribers",
+        "Monitors": "monitors"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "IncidentId",
+        "Phase",
+        "Severity",
+        "Details",
+        "PostedAt",
+        "NotifySubscribers",
+        "Monitors"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": 123,
+            "incident_id": "abc123def",
+            "details": "We have identified the root cause and are working on a fix.",
+            "phase": "identified",
+            "severity": "major",
+            "posted_at": "2023-10-01T12:30:00Z",
+            "notify_subscribers": true,
+            "created_at": "2023-10-01T12:30:00Z",
+            "updated_at": "2023-10-01T12:30:00Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createIncidentUpdate:CreateIncidentUpdate:401",
+      "operationId": "createIncidentUpdate",
+      "methodName": "CreateIncidentUpdate",
+      "namespace": [
+        "incidentUpdates"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "IncidentId": "abc123def",
+        "Phase": "investigating",
+        "Severity": "major",
+        "Details": "We have identified the root cause and are working on a fix.",
+        "PostedAt": "2023-10-01T12:30:00Z",
+        "NotifySubscribers": true,
+        "Monitors": [
+          {
+            "id": "sadfkfefw",
+            "status": "down"
+          },
+          {
+            "id": "dfeweqes",
+            "status": "warn"
+          }
+        ]
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "IncidentId": "incident_id",
+        "Phase": "phase",
+        "Severity": "severity",
+        "Details": "details",
+        "PostedAt": "posted_at",
+        "NotifySubscribers": "notify_subscribers",
+        "Monitors": "monitors"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "IncidentId",
+        "Phase",
+        "Severity",
+        "Details",
+        "PostedAt",
+        "NotifySubscribers",
+        "Monitors"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 401,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createMonitorGroup:CreateMonitorGroup",
+      "operationId": "createMonitorGroup",
+      "methodName": "CreateMonitorGroup",
+      "namespace": [
+        "monitorGroups"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "MonitorGroup": {
+          "name": "Production Services",
+          "position": 1
+        }
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "MonitorGroup": "monitor_group"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "MonitorGroup"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "Production Services",
+            "position": 1,
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createMonitorGroup:CreateMonitorGroup:400",
+      "operationId": "createMonitorGroup",
+      "methodName": "CreateMonitorGroup",
+      "namespace": [
+        "monitorGroups"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "MonitorGroup": {
+          "name": "Production Services",
+          "position": 1
+        }
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "MonitorGroup": "monitor_group"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "MonitorGroup"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 400,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createOutageReport:CreateOutageReport",
+      "operationId": "createOutageReport",
+      "methodName": "CreateOutageReport",
+      "namespace": [
+        "outageReports"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "OutageReport": {
+          "monitor_id": "abc123def",
+          "comment": "API returning 500s",
+          "email": "reporter@example.com",
+          "component_ids": [
+            "comp1",
+            "comp2"
+          ]
+        }
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "OutageReport": "outage_report"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "OutageReport"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "abc123def",
+            "service": {
+              "id": "k2x9m7nPqR",
+              "name": "Amazon Web Services",
+              "icon_url": "https://statusgator.com/favicons/aws.png",
+              "official": true
+            },
+            "monitor": {
+              "id": "uVLl2YK1rn",
+              "name": "My Website Monitor",
+              "monitor_type": "WebsiteMonitor",
+              "icon_url": "https://statusgator.com/favicons/example.png"
+            },
+            "summary": {
+              "id": "uw2YK1rnl0",
+              "description": "Service down"
+            },
+            "comment": "API returning 500s",
+            "email": "reporter@example.com",
+            "components": [
+              {
+                "id": "k2x9m7nPqR",
+                "name": "API",
+                "group_name": "Core Services"
+              }
+            ],
+            "location": {
+              "city": "Seattle",
+              "region": "Washington",
+              "country": "United States",
+              "country_code": "US"
+            },
+            "confirmed_at": "2023-10-01T12:00:00Z",
+            "created_at": "2023-10-01T12:00:00Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createOutageReport:CreateOutageReport:401",
+      "operationId": "createOutageReport",
+      "methodName": "CreateOutageReport",
+      "namespace": [
+        "outageReports"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "OutageReport": {
+          "monitor_id": "abc123def",
+          "comment": "API returning 500s",
+          "email": "reporter@example.com",
+          "component_ids": [
+            "comp1",
+            "comp2"
+          ]
+        }
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "OutageReport": "outage_report"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "OutageReport"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 401,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createPingMonitor:CreatePingMonitor",
+      "operationId": "createPingMonitor",
+      "methodName": "CreatePingMonitor",
+      "namespace": [
+        "pingMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Name": "My Ping Monitor",
+        "Url": "example.com",
+        "Description": "Production server monitoring",
+        "CheckInterval": 5,
+        "CheckRegions": [
+          "us-east",
+          "us-west"
+        ],
+        "AlertAnyLocation": false,
+        "Timeout": 30,
+        "RetryCount": 0,
+        "Metadata": {},
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Name": "name",
+        "Url": "url",
+        "Description": "description",
+        "CheckInterval": "check_interval",
+        "CheckRegions": "check_regions",
+        "AlertAnyLocation": "alert_any_location",
+        "Timeout": "timeout",
+        "RetryCount": "retry_count",
+        "Metadata": "metadata",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Name",
+        "Url",
+        "Description",
+        "CheckInterval",
+        "CheckRegions",
+        "AlertAnyLocation",
+        "Timeout",
+        "RetryCount",
+        "Metadata",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Ping Monitor",
+            "url": "example.com",
+            "description": "Production server monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "timeout": 30,
+            "retry_count": 0,
+            "paused_at": null
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createPingMonitor:CreatePingMonitor:422",
+      "operationId": "createPingMonitor",
+      "methodName": "CreatePingMonitor",
+      "namespace": [
+        "pingMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Name": "My Ping Monitor",
+        "Url": "example.com",
+        "Description": "Production server monitoring",
+        "CheckInterval": 5,
+        "CheckRegions": [
+          "us-east",
+          "us-west"
+        ],
+        "AlertAnyLocation": false,
+        "Timeout": 30,
+        "RetryCount": 0,
+        "Metadata": {},
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Name": "name",
+        "Url": "url",
+        "Description": "description",
+        "CheckInterval": "check_interval",
+        "CheckRegions": "check_regions",
+        "AlertAnyLocation": "alert_any_location",
+        "Timeout": "timeout",
+        "RetryCount": "retry_count",
+        "Metadata": "metadata",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Name",
+        "Url",
+        "Description",
+        "CheckInterval",
+        "CheckRegions",
+        "AlertAnyLocation",
+        "Timeout",
+        "RetryCount",
+        "Metadata",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 422,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createServiceMonitor:CreateServiceMonitor",
+      "operationId": "createServiceMonitor",
+      "methodName": "CreateServiceMonitor",
+      "namespace": [
+        "serviceMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "ServiceId": "abc123xyz",
+        "Name": "GitHub Status",
+        "Description": "Monitor GitHub status page",
+        "Metadata": {},
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "ServiceId": "service_id",
+        "Name": "name",
+        "Description": "description",
+        "Metadata": "metadata",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "ServiceId",
+        "Name",
+        "Description",
+        "Metadata",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "GitHub",
+            "description": "Monitor GitHub status page",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "service_id": "abc123xyz",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createServiceMonitor:CreateServiceMonitor:404",
+      "operationId": "createServiceMonitor",
+      "methodName": "CreateServiceMonitor",
+      "namespace": [
+        "serviceMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "ServiceId": "abc123xyz",
+        "Name": "GitHub Status",
+        "Description": "Monitor GitHub status page",
+        "Metadata": {},
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "ServiceId": "service_id",
+        "Name": "name",
+        "Description": "description",
+        "Metadata": "metadata",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "ServiceId",
+        "Name",
+        "Description",
+        "Metadata",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 404,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createStatusPageSubscriber:CreateStatusPageSubscriber",
+      "operationId": "createStatusPageSubscriber",
+      "methodName": "CreateStatusPageSubscriber",
+      "namespace": [
+        "statusPageSubscribers"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Subscriber": {
+          "email": "user@example.com",
+          "skip_confirmation": false,
+          "monitor_ids": [
+            "m2z5x3nOJa",
+            "k9p8q7rStU"
+          ]
+        }
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Subscriber": "subscriber"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Subscriber"
+      ],
+      "response": {
+        "kind": "empty",
+        "expected": null,
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createStatusPageSubscriber:CreateStatusPageSubscriber:401",
+      "operationId": "createStatusPageSubscriber",
+      "methodName": "CreateStatusPageSubscriber",
+      "namespace": [
+        "statusPageSubscribers"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Subscriber": {
+          "email": "user@example.com",
+          "skip_confirmation": false,
+          "monitor_ids": [
+            "m2z5x3nOJa",
+            "k9p8q7rStU"
+          ]
+        }
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Subscriber": "subscriber"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Subscriber"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 401,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createWebsiteMonitor:CreateWebsiteMonitor",
+      "operationId": "createWebsiteMonitor",
+      "methodName": "CreateWebsiteMonitor",
+      "namespace": [
+        "websiteMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Name": "My Website Monitor",
+        "Url": "https://example.com",
+        "Description": "Production API monitoring",
+        "CheckInterval": 5,
+        "CheckContent": false,
+        "Content": "API Status: OK",
+        "AlertContentFound": false,
+        "CheckRegions": [
+          "us-east",
+          "us-west"
+        ],
+        "AlertAnyLocation": false,
+        "HttpMethod": "GET",
+        "ResponseCodes": "200",
+        "FollowRedirects": true,
+        "Timeout": 30,
+        "RetryCount": 0,
+        "RequestBody": "{\"test\": true}",
+        "RequestHeaders": [
+          {
+            "key": "Authorization",
+            "value": "Bearer token"
+          }
+        ],
+        "Metadata": {},
+        "HttpAuthUsername": "username",
+        "HttpAuthPassword": "password",
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Name": "name",
+        "Url": "url",
+        "Description": "description",
+        "CheckInterval": "check_interval",
+        "CheckContent": "check_content",
+        "Content": "content",
+        "AlertContentFound": "alert_content_found",
+        "CheckRegions": "check_regions",
+        "AlertAnyLocation": "alert_any_location",
+        "HttpMethod": "http_method",
+        "ResponseCodes": "response_codes",
+        "FollowRedirects": "follow_redirects",
+        "Timeout": "timeout",
+        "RetryCount": "retry_count",
+        "RequestBody": "request_body",
+        "RequestHeaders": "request_headers",
+        "Metadata": "metadata",
+        "HttpAuthUsername": "http_auth_username",
+        "HttpAuthPassword": "http_auth_password",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Name",
+        "Url",
+        "Description",
+        "CheckInterval",
+        "CheckContent",
+        "Content",
+        "AlertContentFound",
+        "CheckRegions",
+        "AlertAnyLocation",
+        "HttpMethod",
+        "ResponseCodes",
+        "FollowRedirects",
+        "Timeout",
+        "RetryCount",
+        "RequestBody",
+        "RequestHeaders",
+        "Metadata",
+        "HttpAuthUsername",
+        "HttpAuthPassword",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Website Monitor",
+            "url": "https://example.com",
+            "description": "Production API monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_content": false,
+            "content": "API Status: OK",
+            "alert_content_found": false,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "http_method": "GET",
+            "response_codes": "200",
+            "follow_redirects": true,
+            "timeout": 30,
+            "retry_count": 0,
+            "request_body": "{\"test\": true}",
+            "request_headers": [
+              {
+                "key": "Authorization",
+                "value": "Bearer token"
+              }
+            ],
+            "http_auth_username": "username",
+            "http_auth_password_set": true,
+            "paused_at": null
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "createWebsiteMonitor:CreateWebsiteMonitor:422",
+      "operationId": "createWebsiteMonitor",
+      "methodName": "CreateWebsiteMonitor",
+      "namespace": [
+        "websiteMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Name": "My Website Monitor",
+        "Url": "https://example.com",
+        "Description": "Production API monitoring",
+        "CheckInterval": 5,
+        "CheckContent": false,
+        "Content": "API Status: OK",
+        "AlertContentFound": false,
+        "CheckRegions": [
+          "us-east",
+          "us-west"
+        ],
+        "AlertAnyLocation": false,
+        "HttpMethod": "GET",
+        "ResponseCodes": "200",
+        "FollowRedirects": true,
+        "Timeout": 30,
+        "RetryCount": 0,
+        "RequestBody": "{\"test\": true}",
+        "RequestHeaders": [
+          {
+            "key": "Authorization",
+            "value": "Bearer token"
+          }
+        ],
+        "Metadata": {},
+        "HttpAuthUsername": "username",
+        "HttpAuthPassword": "password",
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Name": "name",
+        "Url": "url",
+        "Description": "description",
+        "CheckInterval": "check_interval",
+        "CheckContent": "check_content",
+        "Content": "content",
+        "AlertContentFound": "alert_content_found",
+        "CheckRegions": "check_regions",
+        "AlertAnyLocation": "alert_any_location",
+        "HttpMethod": "http_method",
+        "ResponseCodes": "response_codes",
+        "FollowRedirects": "follow_redirects",
+        "Timeout": "timeout",
+        "RetryCount": "retry_count",
+        "RequestBody": "request_body",
+        "RequestHeaders": "request_headers",
+        "Metadata": "metadata",
+        "HttpAuthUsername": "http_auth_username",
+        "HttpAuthPassword": "http_auth_password",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Name",
+        "Url",
+        "Description",
+        "CheckInterval",
+        "CheckContent",
+        "Content",
+        "AlertContentFound",
+        "CheckRegions",
+        "AlertAnyLocation",
+        "HttpMethod",
+        "ResponseCodes",
+        "FollowRedirects",
+        "Timeout",
+        "RetryCount",
+        "RequestBody",
+        "RequestHeaders",
+        "Metadata",
+        "HttpAuthUsername",
+        "HttpAuthPassword",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 422,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "deleteBoard:DeleteBoard",
+      "operationId": "deleteBoard",
+      "methodName": "DeleteBoard",
+      "namespace": [
+        "boards"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "Id": "m2z5x3nOJa"
+      },
+      "wireNames": {
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "Id"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "deleteCustomMonitor:DeleteCustomMonitor",
+      "operationId": "deleteCustomMonitor",
+      "methodName": "DeleteCustomMonitor",
+      "namespace": [
+        "customMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "deleteMonitorGroup:DeleteMonitorGroup",
+      "operationId": "deleteMonitorGroup",
+      "methodName": "DeleteMonitorGroup",
+      "namespace": [
+        "monitorGroups"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Id": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "deleteMonitorGroup:DeleteMonitorGroup:401",
+      "operationId": "deleteMonitorGroup",
+      "methodName": "DeleteMonitorGroup",
+      "namespace": [
+        "monitorGroups"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Id": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 401,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "deletePingMonitor:DeletePingMonitor",
+      "operationId": "deletePingMonitor",
+      "methodName": "DeletePingMonitor",
+      "namespace": [
+        "pingMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "deleteServiceMonitor:DeleteServiceMonitor",
+      "operationId": "deleteServiceMonitor",
+      "methodName": "DeleteServiceMonitor",
+      "namespace": [
+        "serviceMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "deleteStatusPageSubscriber:DeleteStatusPageSubscriber",
+      "operationId": "deleteStatusPageSubscriber",
+      "methodName": "DeleteStatusPageSubscriber",
+      "namespace": [
+        "statusPageSubscribers"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Id": "m2z5x3nOJa",
+        "Email": "user@example.com"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "Email": "email"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "Email"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "deleteStatusPageSubscriber:DeleteStatusPageSubscriber:401",
+      "operationId": "deleteStatusPageSubscriber",
+      "methodName": "DeleteStatusPageSubscriber",
+      "namespace": [
+        "statusPageSubscribers"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Id": "m2z5x3nOJa",
+        "Email": "user@example.com"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "Email": "email"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "Email"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 401,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "deleteWebsiteMonitor:DeleteWebsiteMonitor",
+      "operationId": "deleteWebsiteMonitor",
+      "methodName": "DeleteWebsiteMonitor",
+      "namespace": [
+        "websiteMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "getBoard:GetBoard",
+      "operationId": "getBoard",
+      "methodName": "GetBoard",
+      "namespace": [
+        "boards"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "Id": "m2z5x3nOJa"
+      },
+      "wireNames": {
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "Id"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "m2z5x3nOJa",
+            "name": "Cloud Services",
+            "public_token": "abc123def456",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "getBoardHistory:GetBoardHistory",
+      "operationId": "getBoardHistory",
+      "methodName": "GetBoardHistory",
+      "namespace": [
+        "boards"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "StartDate": "2025-09-01",
+        "EndDate": "2025-10-01",
+        "MonitorId": "A6das1igzR"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "StartDate": "start_date",
+        "EndDate": "end_date",
+        "MonitorId": "monitor_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "StartDate",
+        "EndDate",
+        "MonitorId"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "monitor_id": "L1hZpHOn63",
+              "name": "Zoom",
+              "icon_url": "zoom.png",
+              "status": "down",
+              "started_at": "2025-09-12T12:00:00Z",
+              "ended_at": "2025-09-12T13:00:00Z",
+              "duration": 60,
+              "message": "Outage in progress",
+              "details": "We are investigating",
+              "early_warning_signal": false
+            }
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "getBoardMonitors:GetBoardMonitors",
+      "operationId": "getBoardMonitors",
+      "methodName": "GetBoardMonitors",
+      "namespace": [
+        "monitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Status": "affected"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Status": "status"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Status"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "id": "uVLl2YK1rn",
+              "checked_at": "2025-09-05T23:05:23.463Z",
+              "created_at": "2023-07-06T14:18:35.607Z",
+              "updated_at": "2023-07-06T14:18:35.607Z",
+              "filtered_status": "warn",
+              "description": null,
+              "metadata": {
+                "key": "key"
+              },
+              "unfiltered_status": "warn",
+              "last_message": "CGK (Jakarta) on 2025-09-05",
+              "last_details": "In progress - Scheduled maintenance is currently in progress. We will provide updates as necessary. Sep 05, 2025 - 22:00 UTC",
+              "overridden_message": null,
+              "overridden_status": null,
+              "overrides_locked_at": null,
+              "paused_at": null,
+              "filter_count": 0,
+              "icon_url": "https://favicons-dev.statusgator.com/FiM8Ile0FV3wLjxF.jpg",
+              "position": 3,
+              "monitor_type": "ServiceMonitor",
+              "early_warning_signal": false,
+              "display_name": "Cloudflare",
+              "service": {
+                "id": "PQNMcnNFWw",
+                "name": "Cloudflare",
+                "slug": "cloudflare",
+                "home_page_url": "http://www.cloudflare.com",
+                "status_page_url": "https://www.cloudflarestatus.com",
+                "icon_url": "https://favicons-dev.statusgator.com/FiM8Ile0FV3wLjxF.jpg",
+                "landing_page_url": "https://studio.colinabartlett.com:3004/services/cloudflare",
+                "official": true,
+                "rating": {
+                  "letter_grade": "A",
+                  "description": "Excellent",
+                  "average_delay_minutes": 8.3
+                }
+              },
+              "group": {
+                "id": "k2x9m7nPqR",
+                "name": "Infrastructure",
+                "position": 1
+              }
+            }
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "getBoardUptimeReport:GetBoardUptimeReport",
+      "operationId": "getBoardUptimeReport",
+      "methodName": "GetBoardUptimeReport",
+      "namespace": [
+        "reports"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "k2x9m7nPqR",
+        "Period": "30d"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Period": "period"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Period"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": true,
+          "data": {
+            "period": "30d",
+            "total_monitors": 12,
+            "average_uptime_percentage": 99.95,
+            "outage_count": 3,
+            "total_downtime_minutes": 1.5,
+            "monitors": [
+              {
+                "monitor_id": "k2x9m7nPqR",
+                "name": "API Monitor",
+                "uptime_percentage": 99.95
+              }
+            ]
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "getMonitorGroup:GetMonitorGroup",
+      "operationId": "getMonitorGroup",
+      "methodName": "GetMonitorGroup",
+      "namespace": [
+        "monitorGroups"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Id": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "Production Services",
+            "position": 1,
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "getMonitorGroup:GetMonitorGroup:401",
+      "operationId": "getMonitorGroup",
+      "methodName": "GetMonitorGroup",
+      "namespace": [
+        "monitorGroups"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Id": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 401,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "getPingMonitorMetrics:GetPingMonitorMetrics",
+      "operationId": "getPingMonitorMetrics",
+      "methodName": "GetPingMonitorMetrics",
+      "namespace": [
+        "pingMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "k2x9m7nPqR",
+        "Id": "k2x9m7nPqR",
+        "Period": "24h"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "Period": "period"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "Period"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": true,
+          "data": {
+            "monitor_id": "k2x9m7nPqR",
+            "period": "24h",
+            "summary": [
+              {
+                "region": "eu-west-1",
+                "average_duration": 60,
+                "min_duration": 30,
+                "max_duration": 140,
+                "p95_duration": 110,
+                "p99_duration": 130
+              }
+            ],
+            "data_points": [
+              {
+                "bucket": "2026-06-14T12:00:00Z",
+                "region": "eu-west-1",
+                "average_duration": 58,
+                "p95_duration": 100,
+                "p99_duration": 125
+              }
+            ]
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "getWebsiteMonitorMetrics:GetWebsiteMonitorMetrics",
+      "operationId": "getWebsiteMonitorMetrics",
+      "methodName": "GetWebsiteMonitorMetrics",
+      "namespace": [
+        "websiteMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "k2x9m7nPqR",
+        "Id": "k2x9m7nPqR",
+        "Period": "24h"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "Period": "period"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "Period"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": true,
+          "data": {
+            "monitor_id": "k2x9m7nPqR",
+            "period": "24h",
+            "summary": [
+              {
+                "region": "us-east-1",
+                "average_duration": 120,
+                "min_duration": 48,
+                "max_duration": 310,
+                "p95_duration": 205,
+                "p99_duration": 288
+              }
+            ],
+            "data_points": [
+              {
+                "bucket": "2026-06-14T12:00:00Z",
+                "region": "us-east-1",
+                "average_duration": 110,
+                "p95_duration": 190,
+                "p99_duration": 250
+              }
+            ]
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listBoards:ListBoards",
+      "operationId": "listBoards",
+      "methodName": "ListBoards",
+      "namespace": [
+        "boards"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "Page": 1,
+        "PerPage": 25
+      },
+      "wireNames": {
+        "Page": "page",
+        "PerPage": "per_page"
+      },
+      "argumentOrder": [
+        "Page",
+        "PerPage"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "id": "m2z5x3nOJa",
+              "name": "Cloud Services",
+              "public_token": "abc123def456",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listIncidents:ListIncidents",
+      "operationId": "listIncidents",
+      "methodName": "ListIncidents",
+      "namespace": [
+        "incidents"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Page": 1,
+        "PerPage": 25,
+        "Phase": "phase",
+        "Severity": "severity"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Page": "page",
+        "PerPage": "per_page",
+        "Phase": "phase",
+        "Severity": "severity"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Page",
+        "PerPage",
+        "Phase",
+        "Severity"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "id": "abc123def",
+              "name": "Database outage",
+              "details": "We are currently experiencing a database outage affecting all services.",
+              "started_at": "2023-10-01T12:00:00Z",
+              "resolved_at": "2023-10-01T14:30:00Z",
+              "phase": "investigating",
+              "severity": "major",
+              "will_start_at": "2023-10-02T02:00:00Z",
+              "will_end_at": "2023-10-02T04:00:00Z",
+              "auto_complete_maintenance": false,
+              "board_id": "lh16iGAYKI",
+              "duration": 150.5,
+              "maintenance_duration": 120,
+              "scheduled_maintenance": false,
+              "resolved_or_completed": false,
+              "created_at": "2023-10-01T11:45:00Z",
+              "updated_at": "2023-10-01T12:15:00Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listIncidents:ListIncidents:401",
+      "operationId": "listIncidents",
+      "methodName": "ListIncidents",
+      "namespace": [
+        "incidents"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Page": 1,
+        "PerPage": 25,
+        "Phase": "phase",
+        "Severity": "severity"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Page": "page",
+        "PerPage": "per_page",
+        "Phase": "phase",
+        "Severity": "severity"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Page",
+        "PerPage",
+        "Phase",
+        "Severity"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 401,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listMonitorComponents:ListMonitorComponents",
+      "operationId": "listMonitorComponents",
+      "methodName": "ListMonitorComponents",
+      "namespace": [
+        "monitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "k2x9m7nPqR",
+        "MonitorId": "k2x9m7nPqR",
+        "Page": 1,
+        "PerPage": 25,
+        "Status": "affected"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "MonitorId": "monitor_id",
+        "Page": "page",
+        "PerPage": "per_page",
+        "Status": "status"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "MonitorId",
+        "Page",
+        "PerPage",
+        "Status"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "API",
+              "group_name": "Core Services",
+              "service_id": "k2x9m7nPqR",
+              "status": "up",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listMonitorGroups:ListMonitorGroups",
+      "operationId": "listMonitorGroups",
+      "methodName": "ListMonitorGroups",
+      "namespace": [
+        "monitorGroups"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Page": 1,
+        "PerPage": 25
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Page": "page",
+        "PerPage": "per_page"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Page",
+        "PerPage"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "id": "x5y2m8nQrS",
+              "name": "Production Services",
+              "position": 1,
+              "created_at": "2025-09-19T09:00:00Z",
+              "updated_at": "2025-09-19T10:30:00Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listMonitorGroups:ListMonitorGroups:401",
+      "operationId": "listMonitorGroups",
+      "methodName": "ListMonitorGroups",
+      "namespace": [
+        "monitorGroups"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Page": 1,
+        "PerPage": 25
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Page": "page",
+        "PerPage": "per_page"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Page",
+        "PerPage"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 401,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listMonitoringRegions:ListMonitoringRegions",
+      "operationId": "listMonitoringRegions",
+      "methodName": "ListMonitoringRegions",
+      "namespace": [
+        "monitoringRegions"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {},
+      "wireNames": {},
+      "argumentOrder": [],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "region_id": "us-east",
+              "dns_name": "monitor-us-east.statusgator.com",
+              "ip_address": "52.1.2.3",
+              "provider": "AWS",
+              "code": "us-east-1",
+              "name": "US East",
+              "desc": "US East (N. Virginia)",
+              "icon_url": "https://statusgator.com/assets/external_logos/aws.png",
+              "color": "#1a5db2"
+            }
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listMonitorRelationships:ListMonitorRelationships",
+      "operationId": "listMonitorRelationships",
+      "methodName": "ListMonitorRelationships",
+      "namespace": [
+        "monitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "k2x9m7nPqR",
+        "MonitorId": "uVLl2YK1rn",
+        "Page": 1,
+        "PerPage": 25
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "MonitorId": "monitor_id",
+        "Page": "page",
+        "PerPage": "per_page"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "MonitorId",
+        "Page",
+        "PerPage"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "id": "aBcD1234eF",
+              "relationship_type": "depends_on",
+              "service": {
+                "id": "k2x9m7nPqR",
+                "name": "Amazon Web Services",
+                "icon_url": "https://statusgator.com/favicons/aws.png",
+                "official": true
+              },
+              "monitor": {
+                "id": "uVLl2YK1rn",
+                "name": "My Website Monitor",
+                "monitor_type": "WebsiteMonitor",
+                "icon_url": "https://statusgator.com/favicons/example.png"
+              },
+              "source": {
+                "method": "manual"
+              },
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listOutageReports:ListOutageReports",
+      "operationId": "listOutageReports",
+      "methodName": "ListOutageReports",
+      "namespace": [
+        "outageReports"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Since": "2026-10-01T12:00:00Z",
+        "Page": 1,
+        "PerPage": 25
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Since": "since",
+        "Page": "page",
+        "PerPage": "per_page"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Since",
+        "Page",
+        "PerPage"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "id": "abc123def",
+              "service": {
+                "id": "k2x9m7nPqR",
+                "name": "Amazon Web Services",
+                "icon_url": "https://statusgator.com/favicons/aws.png",
+                "official": true
+              },
+              "monitor": {
+                "id": "uVLl2YK1rn",
+                "name": "My Website Monitor",
+                "monitor_type": "WebsiteMonitor",
+                "icon_url": "https://statusgator.com/favicons/example.png"
+              },
+              "summary": {
+                "id": "uw2YK1rnl0",
+                "description": "Service down"
+              },
+              "comment": "API returning 500s",
+              "email": "reporter@example.com",
+              "components": [
+                {
+                  "id": "k2x9m7nPqR",
+                  "name": "API",
+                  "group_name": "Core Services"
+                }
+              ],
+              "location": {
+                "city": "Seattle",
+                "region": "Washington",
+                "country": "United States",
+                "country_code": "US"
+              },
+              "confirmed_at": "2023-10-01T12:00:00Z",
+              "created_at": "2023-10-01T12:00:00Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listOutageReports:ListOutageReports:401",
+      "operationId": "listOutageReports",
+      "methodName": "ListOutageReports",
+      "namespace": [
+        "outageReports"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Since": "2026-10-01T12:00:00Z",
+        "Page": 1,
+        "PerPage": 25
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Since": "since",
+        "Page": "page",
+        "PerPage": "per_page"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Since",
+        "Page",
+        "PerPage"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 401,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listServiceComponents:ListServiceComponents",
+      "operationId": "listServiceComponents",
+      "methodName": "ListServiceComponents",
+      "namespace": [
+        "services"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "ServiceId": "k2x9m7nPqR",
+        "Page": 1,
+        "PerPage": 25
+      },
+      "wireNames": {
+        "ServiceId": "service_id",
+        "Page": "page",
+        "PerPage": "per_page"
+      },
+      "argumentOrder": [
+        "ServiceId",
+        "Page",
+        "PerPage"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "API",
+              "group_name": "Core Services",
+              "service_id": "k2x9m7nPqR",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listServices:ListServices",
+      "operationId": "listServices",
+      "methodName": "ListServices",
+      "namespace": [
+        "services"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "Page": 1,
+        "PerPage": 25,
+        "CreatedAfter": "2025-09-01T00:00:00Z"
+      },
+      "wireNames": {
+        "Page": "page",
+        "PerPage": "per_page",
+        "CreatedAfter": "created_after"
+      },
+      "argumentOrder": [
+        "Page",
+        "PerPage",
+        "CreatedAfter"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "GitHub",
+              "public_url": "https://www.githubstatus.com/",
+              "home_page_url": "https://github.com",
+              "description": "GitHub is a web-based version control and collaboration platform for software developers.",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z",
+              "icon_url": "https://statusgator.com/favicons/github.png",
+              "landing_page_url": "https://statusgator.com/services/github",
+              "category_names": [
+                "Development Tools",
+                "Version Control"
+              ],
+              "official": true,
+              "rating": {
+                "letter_grade": "A",
+                "description": "Excellent",
+                "average_delay_minutes": 8.3
+              }
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listStatusPageSubscribers:ListStatusPageSubscribers",
+      "operationId": "listStatusPageSubscribers",
+      "methodName": "ListStatusPageSubscribers",
+      "namespace": [
+        "statusPageSubscribers"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Page": 1,
+        "PerPage": 25
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Page": "page",
+        "PerPage": "per_page"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Page",
+        "PerPage"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "id": "m2z5x3nOJa",
+              "email": "user@example.com",
+              "confirmed": true,
+              "confirmed_at": "2025-09-12T12:35:54Z",
+              "monitor_ids": [
+                "m2z5x3nOJa",
+                "k9p8q7rStU"
+              ],
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listStatusPageSubscribers:ListStatusPageSubscribers:401",
+      "operationId": "listStatusPageSubscribers",
+      "methodName": "ListStatusPageSubscribers",
+      "namespace": [
+        "statusPageSubscribers"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Page": 1,
+        "PerPage": 25
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Page": "page",
+        "PerPage": "per_page"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Page",
+        "PerPage"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 401,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "listUsers:ListUsers",
+      "operationId": "listUsers",
+      "methodName": "ListUsers",
+      "namespace": [
+        "users"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {},
+      "wireNames": {},
+      "argumentOrder": [],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "email": "user@example.com",
+              "first_name": "John",
+              "last_name": "Doe",
+              "company": "Example Corp",
+              "job_title": "DevOps Engineer",
+              "role": "editor",
+              "created_at": "2025-01-15T10:30:00Z",
+              "last_sign_in_at": "2025-01-15T10:30:00Z",
+              "confirmed": true,
+              "two_factor_enabled": false
+            }
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "pausePingMonitor:PausePingMonitor",
+      "operationId": "pausePingMonitor",
+      "methodName": "PausePingMonitor",
+      "namespace": [
+        "pingMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Ping Monitor",
+            "url": "example.com",
+            "description": "Production server monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "timeout": 30,
+            "retry_count": 0,
+            "paused_at": null
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "pauseWebsiteMonitor:PauseWebsiteMonitor",
+      "operationId": "pauseWebsiteMonitor",
+      "methodName": "PauseWebsiteMonitor",
+      "namespace": [
+        "websiteMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Website Monitor",
+            "url": "https://example.com",
+            "description": "Production API monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_content": false,
+            "content": "API Status: OK",
+            "alert_content_found": false,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "http_method": "GET",
+            "response_codes": "200",
+            "follow_redirects": true,
+            "timeout": 30,
+            "retry_count": 0,
+            "request_body": "{\"test\": true}",
+            "request_headers": [
+              {
+                "key": "Authorization",
+                "value": "Bearer token"
+              }
+            ],
+            "http_auth_username": "username",
+            "http_auth_password_set": true,
+            "paused_at": null
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "ping:Ping",
+      "operationId": "ping",
+      "methodName": "Ping",
+      "namespace": [
+        "ping"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {},
+      "wireNames": {},
+      "argumentOrder": [],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "message": "pong",
+            "organization": {
+              "id": "k2x9m7nPqR",
+              "name": "Acme Inc",
+              "timezone": "America/New_York"
+            },
+            "token": {
+              "id": "p8Wq3rTv5Z",
+              "name": "Integration token",
+              "scope": "organization",
+              "permission": "full",
+              "source": "dashboard",
+              "created_at": "2025-01-15T10:30:00Z",
+              "expires_at": "2026-01-15T10:30:00Z",
+              "user": {
+                "id": "k2x9m7nPqR",
+                "email": "user@example.com"
+              }
+            }
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "searchServices:SearchServices",
+      "operationId": "searchServices",
+      "methodName": "SearchServices",
+      "namespace": [
+        "services"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "Q": "github"
+      },
+      "wireNames": {
+        "Q": "q"
+      },
+      "argumentOrder": [
+        "Q"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "GitHub",
+              "public_url": "https://www.githubstatus.com/",
+              "home_page_url": "https://github.com",
+              "description": "GitHub is a web-based version control and collaboration platform for software developers.",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z",
+              "icon_url": "https://statusgator.com/favicons/github.png",
+              "landing_page_url": "https://statusgator.com/services/github",
+              "category_names": [
+                "Development Tools",
+                "Version Control"
+              ],
+              "official": true,
+              "rating": {
+                "letter_grade": "A",
+                "description": "Excellent",
+                "average_delay_minutes": 8.3
+              }
+            }
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "unpausePingMonitor:UnpausePingMonitor",
+      "operationId": "unpausePingMonitor",
+      "methodName": "UnpausePingMonitor",
+      "namespace": [
+        "pingMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Ping Monitor",
+            "url": "example.com",
+            "description": "Production server monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "timeout": 30,
+            "retry_count": 0,
+            "paused_at": null
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "unpauseWebsiteMonitor:UnpauseWebsiteMonitor",
+      "operationId": "unpauseWebsiteMonitor",
+      "methodName": "UnpauseWebsiteMonitor",
+      "namespace": [
+        "websiteMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Website Monitor",
+            "url": "https://example.com",
+            "description": "Production API monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_content": false,
+            "content": "API Status: OK",
+            "alert_content_found": false,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "http_method": "GET",
+            "response_codes": "200",
+            "follow_redirects": true,
+            "timeout": 30,
+            "retry_count": 0,
+            "request_body": "{\"test\": true}",
+            "request_headers": [
+              {
+                "key": "Authorization",
+                "value": "Bearer token"
+              }
+            ],
+            "http_auth_username": "username",
+            "http_auth_password_set": true,
+            "paused_at": null
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "updateBoard:UpdateBoard",
+      "operationId": "updateBoard",
+      "methodName": "UpdateBoard",
+      "namespace": [
+        "boards"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "Id": "m2z5x3nOJa",
+        "Board": {
+          "name": "Renamed Board",
+          "user_ids": [
+            "k2x9m7nPqR"
+          ]
+        }
+      },
+      "wireNames": {
+        "Id": "id",
+        "Board": "board"
+      },
+      "argumentOrder": [
+        "Id",
+        "Board"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "m2z5x3nOJa",
+            "name": "Cloud Services",
+            "public_token": "abc123def456",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "updateCustomMonitor:UpdateCustomMonitor",
+      "operationId": "updateCustomMonitor",
+      "methodName": "UpdateCustomMonitor",
+      "namespace": [
+        "customMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS",
+        "Name": "Updated Custom Service",
+        "Description": "Updated description",
+        "Metadata": {},
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "Name": "name",
+        "Description": "description",
+        "Metadata": "metadata",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "Name",
+        "Description",
+        "Metadata",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Custom Monitor",
+            "description": "Custom service we manually update",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "updateMonitorGroup:UpdateMonitorGroup",
+      "operationId": "updateMonitorGroup",
+      "methodName": "UpdateMonitorGroup",
+      "namespace": [
+        "monitorGroups"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Id": "x5y2m8nQrS",
+        "MonitorGroup": {
+          "name": "Production Services",
+          "position": 1
+        }
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "MonitorGroup": "monitor_group"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "MonitorGroup"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "Production Services",
+            "position": 1,
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "updateMonitorGroup:UpdateMonitorGroup:401",
+      "operationId": "updateMonitorGroup",
+      "methodName": "UpdateMonitorGroup",
+      "namespace": [
+        "monitorGroups"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "lh16iGAYKI",
+        "Id": "x5y2m8nQrS",
+        "MonitorGroup": {
+          "name": "Production Services",
+          "position": 1
+        }
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "MonitorGroup": "monitor_group"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "MonitorGroup"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 401,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "updatePingMonitor:UpdatePingMonitor",
+      "operationId": "updatePingMonitor",
+      "methodName": "UpdatePingMonitor",
+      "namespace": [
+        "pingMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS",
+        "Name": "Updated Ping Monitor",
+        "Url": "updated-example.com",
+        "Description": "Updated production server monitoring",
+        "CheckInterval": 3,
+        "CheckRegions": [
+          "us-east",
+          "eu-west"
+        ],
+        "AlertAnyLocation": true,
+        "Timeout": 60,
+        "RetryCount": 2,
+        "Metadata": {},
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "Name": "name",
+        "Url": "url",
+        "Description": "description",
+        "CheckInterval": "check_interval",
+        "CheckRegions": "check_regions",
+        "AlertAnyLocation": "alert_any_location",
+        "Timeout": "timeout",
+        "RetryCount": "retry_count",
+        "Metadata": "metadata",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "Name",
+        "Url",
+        "Description",
+        "CheckInterval",
+        "CheckRegions",
+        "AlertAnyLocation",
+        "Timeout",
+        "RetryCount",
+        "Metadata",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Ping Monitor",
+            "url": "example.com",
+            "description": "Production server monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "timeout": 30,
+            "retry_count": 0,
+            "paused_at": null
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "updatePingMonitor:UpdatePingMonitor:422",
+      "operationId": "updatePingMonitor",
+      "methodName": "UpdatePingMonitor",
+      "namespace": [
+        "pingMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS",
+        "Name": "Updated Ping Monitor",
+        "Url": "updated-example.com",
+        "Description": "Updated production server monitoring",
+        "CheckInterval": 3,
+        "CheckRegions": [
+          "us-east",
+          "eu-west"
+        ],
+        "AlertAnyLocation": true,
+        "Timeout": 60,
+        "RetryCount": 2,
+        "Metadata": {},
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "Name": "name",
+        "Url": "url",
+        "Description": "description",
+        "CheckInterval": "check_interval",
+        "CheckRegions": "check_regions",
+        "AlertAnyLocation": "alert_any_location",
+        "Timeout": "timeout",
+        "RetryCount": "retry_count",
+        "Metadata": "metadata",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "Name",
+        "Url",
+        "Description",
+        "CheckInterval",
+        "CheckRegions",
+        "AlertAnyLocation",
+        "Timeout",
+        "RetryCount",
+        "Metadata",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 422,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "updateServiceMonitor:UpdateServiceMonitor",
+      "operationId": "updateServiceMonitor",
+      "methodName": "UpdateServiceMonitor",
+      "namespace": [
+        "serviceMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS",
+        "Name": "GitHub Status",
+        "Description": "Updated description",
+        "Metadata": {},
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "Name": "name",
+        "Description": "description",
+        "Metadata": "metadata",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "Name",
+        "Description",
+        "Metadata",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "GitHub",
+            "description": "Monitor GitHub status page",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "service_id": "abc123xyz",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "updateServiceMonitor:UpdateServiceMonitor:404",
+      "operationId": "updateServiceMonitor",
+      "methodName": "UpdateServiceMonitor",
+      "namespace": [
+        "serviceMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS",
+        "Name": "GitHub Status",
+        "Description": "Updated description",
+        "Metadata": {},
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "Name": "name",
+        "Description": "description",
+        "Metadata": "metadata",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "Name",
+        "Description",
+        "Metadata",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 404,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "updateWebsiteMonitor:UpdateWebsiteMonitor",
+      "operationId": "updateWebsiteMonitor",
+      "methodName": "UpdateWebsiteMonitor",
+      "namespace": [
+        "websiteMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS",
+        "Name": "Updated Website Monitor",
+        "Url": "https://updated-example.com",
+        "Description": "Updated production API monitoring",
+        "CheckInterval": 3,
+        "CheckContent": true,
+        "Content": "Service Healthy",
+        "AlertContentFound": true,
+        "CheckRegions": [
+          "us-east",
+          "eu-west"
+        ],
+        "AlertAnyLocation": true,
+        "HttpMethod": "POST",
+        "ResponseCodes": "201",
+        "FollowRedirects": false,
+        "Timeout": 60,
+        "RetryCount": 2,
+        "RequestBody": "{\"updated\": true}",
+        "RequestHeaders": [
+          {
+            "key": "X-API-Key",
+            "value": "secret123"
+          }
+        ],
+        "Metadata": {},
+        "HttpAuthUsername": "newusername",
+        "HttpAuthPassword": "newpassword",
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "Name": "name",
+        "Url": "url",
+        "Description": "description",
+        "CheckInterval": "check_interval",
+        "CheckContent": "check_content",
+        "Content": "content",
+        "AlertContentFound": "alert_content_found",
+        "CheckRegions": "check_regions",
+        "AlertAnyLocation": "alert_any_location",
+        "HttpMethod": "http_method",
+        "ResponseCodes": "response_codes",
+        "FollowRedirects": "follow_redirects",
+        "Timeout": "timeout",
+        "RetryCount": "retry_count",
+        "RequestBody": "request_body",
+        "RequestHeaders": "request_headers",
+        "Metadata": "metadata",
+        "HttpAuthUsername": "http_auth_username",
+        "HttpAuthPassword": "http_auth_password",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "Name",
+        "Url",
+        "Description",
+        "CheckInterval",
+        "CheckContent",
+        "Content",
+        "AlertContentFound",
+        "CheckRegions",
+        "AlertAnyLocation",
+        "HttpMethod",
+        "ResponseCodes",
+        "FollowRedirects",
+        "Timeout",
+        "RetryCount",
+        "RequestBody",
+        "RequestHeaders",
+        "Metadata",
+        "HttpAuthUsername",
+        "HttpAuthPassword",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "json",
+        "expected": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Website Monitor",
+            "url": "https://example.com",
+            "description": "Production API monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_content": false,
+            "content": "API Status: OK",
+            "alert_content_found": false,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "http_method": "GET",
+            "response_codes": "200",
+            "follow_redirects": true,
+            "timeout": 30,
+            "retry_count": 0,
+            "request_body": "{\"test\": true}",
+            "request_headers": [
+              {
+                "key": "Authorization",
+                "value": "Bearer token"
+              }
+            ],
+            "http_auth_username": "username",
+            "http_auth_password_set": true,
+            "paused_at": null
+          }
+        },
+        "byteLength": 0
+      }
+    },
+    {
+      "id": "updateWebsiteMonitor:UpdateWebsiteMonitor:422",
+      "operationId": "updateWebsiteMonitor",
+      "methodName": "UpdateWebsiteMonitor",
+      "namespace": [
+        "websiteMonitors"
+      ],
+      "mode": "normal",
+      "owner": null,
+      "arguments": {
+        "BoardId": "m2z5x3nOJa",
+        "Id": "x5y2m8nQrS",
+        "Name": "Updated Website Monitor",
+        "Url": "https://updated-example.com",
+        "Description": "Updated production API monitoring",
+        "CheckInterval": 3,
+        "CheckContent": true,
+        "Content": "Service Healthy",
+        "AlertContentFound": true,
+        "CheckRegions": [
+          "us-east",
+          "eu-west"
+        ],
+        "AlertAnyLocation": true,
+        "HttpMethod": "POST",
+        "ResponseCodes": "201",
+        "FollowRedirects": false,
+        "Timeout": 60,
+        "RetryCount": 2,
+        "RequestBody": "{\"updated\": true}",
+        "RequestHeaders": [
+          {
+            "key": "X-API-Key",
+            "value": "secret123"
+          }
+        ],
+        "Metadata": {},
+        "HttpAuthUsername": "newusername",
+        "HttpAuthPassword": "newpassword",
+        "MonitorGroupId": "x5y2m8nQrS"
+      },
+      "wireNames": {
+        "BoardId": "board_id",
+        "Id": "id",
+        "Name": "name",
+        "Url": "url",
+        "Description": "description",
+        "CheckInterval": "check_interval",
+        "CheckContent": "check_content",
+        "Content": "content",
+        "AlertContentFound": "alert_content_found",
+        "CheckRegions": "check_regions",
+        "AlertAnyLocation": "alert_any_location",
+        "HttpMethod": "http_method",
+        "ResponseCodes": "response_codes",
+        "FollowRedirects": "follow_redirects",
+        "Timeout": "timeout",
+        "RetryCount": "retry_count",
+        "RequestBody": "request_body",
+        "RequestHeaders": "request_headers",
+        "Metadata": "metadata",
+        "HttpAuthUsername": "http_auth_username",
+        "HttpAuthPassword": "http_auth_password",
+        "MonitorGroupId": "monitor_group_id"
+      },
+      "argumentOrder": [
+        "BoardId",
+        "Id",
+        "Name",
+        "Url",
+        "Description",
+        "CheckInterval",
+        "CheckContent",
+        "Content",
+        "AlertContentFound",
+        "CheckRegions",
+        "AlertAnyLocation",
+        "HttpMethod",
+        "ResponseCodes",
+        "FollowRedirects",
+        "Timeout",
+        "RetryCount",
+        "RequestBody",
+        "RequestHeaders",
+        "Metadata",
+        "HttpAuthUsername",
+        "HttpAuthPassword",
+        "MonitorGroupId"
+      ],
+      "response": {
+        "kind": "error",
+        "status": 422,
+        "expected": {
+          "success": false,
+          "errors": [
+            "errors"
+          ]
+        },
+        "byteLength": 0
+      }
+    }
+  ]
+}

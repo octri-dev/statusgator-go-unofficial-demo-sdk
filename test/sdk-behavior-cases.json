@@ -1,0 +1,2651 @@
+{
+  "baseUrl": "https://behavior.test",
+  "operationCount": 47,
+  "credentials": {
+    "bearer": "behavior-bearer-token",
+    "apiKey": "behavior-api-key",
+    "basicUser": "behavior-user",
+    "basicPassword": "behavior-password",
+    "basicHeader": "Basic YmVoYXZpb3ItdXNlcjpiZWhhdmlvci1wYXNzd29yZA=="
+  },
+  "authHeaders": {},
+  "cases": [
+    {
+      "id": "behavior-1",
+      "operationId": "getBoardHistory",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards/{board_id}/history",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [
+          {
+            "name": "start_date",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "end_date",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "monitor_id",
+            "style": "form",
+            "explode": true,
+            "value": "monitor-1",
+            "serialized": "monitor-1"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards/board-1/history",
+        "query": "start_date=2024-01-01T00%3A00%3A00Z&end_date=2024-01-01T00%3A00%3A00Z&monitor_id=monitor-1",
+        "url": "https://behavior.test/boards/board-1/history?start_date=2024-01-01T00%3A00%3A00Z&end_date=2024-01-01T00%3A00%3A00Z&monitor_id=monitor-1",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"monitor_id\":\"L1hZpHOn63\",\"name\":\"Zoom\",\"icon_url\":\"zoom.png\",\"status\":\"down\",\"started_at\":\"2025-09-12T12:00:00Z\",\"ended_at\":\"2025-09-12T13:00:00Z\",\"duration\":60,\"message\":\"Outage in progress\",\"details\":\"We are investigating\",\"early_warning_signal\":false}]}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "monitor_id": "L1hZpHOn63",
+              "name": "Zoom",
+              "icon_url": "zoom.png",
+              "status": "down",
+              "started_at": "2025-09-12T12:00:00Z",
+              "ended_at": "2025-09-12T13:00:00Z",
+              "duration": 60,
+              "message": "Outage in progress",
+              "details": "We are investigating",
+              "early_warning_signal": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-2",
+      "operationId": "listBoards",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          },
+          {
+            "name": "per_page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards",
+        "query": "page=30&per_page=30",
+        "url": "https://behavior.test/boards?page=30&per_page=30",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"id\":\"m2z5x3nOJa\",\"name\":\"Cloud Services\",\"public_token\":\"abc123def456\",\"created_at\":\"2025-09-12T12:35:54Z\",\"updated_at\":\"2025-09-12T12:40:54Z\"}],\"pagination\":{\"current_page\":30,\"per_page\":30,\"total_pages\":30,\"total_count\":100,\"next_page\":30,\"prev_page\":30}}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "id": "m2z5x3nOJa",
+              "name": "Cloud Services",
+              "public_token": "abc123def456",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-3",
+      "operationId": "createBoard",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/boards",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "board": {
+            "name": "Cloud Services",
+            "user_ids": [
+              "k2x9m7nPqR"
+            ]
+          }
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/boards",
+        "query": "",
+        "url": "https://behavior.test/boards",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"board\":{\"name\":\"Cloud Services\",\"user_ids\":[\"k2x9m7nPqR\"]}}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"m2z5x3nOJa\",\"name\":\"Cloud Services\",\"public_token\":\"abc123def456\",\"created_at\":\"2025-09-12T12:35:54Z\",\"updated_at\":\"2025-09-12T12:40:54Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "m2z5x3nOJa",
+            "name": "Cloud Services",
+            "public_token": "abc123def456",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-4",
+      "operationId": "getBoard",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards/{id}",
+        "pathParameters": {
+          "id": "id-1"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards/id-1",
+        "query": "",
+        "url": "https://behavior.test/boards/id-1",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"m2z5x3nOJa\",\"name\":\"Cloud Services\",\"public_token\":\"abc123def456\",\"created_at\":\"2025-09-12T12:35:54Z\",\"updated_at\":\"2025-09-12T12:40:54Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "m2z5x3nOJa",
+            "name": "Cloud Services",
+            "public_token": "abc123def456",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-5",
+      "operationId": "updateBoard",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PATCH",
+        "pathTemplate": "/boards/{id}",
+        "pathParameters": {
+          "id": "id-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "board": {
+            "name": "Renamed Board",
+            "user_ids": [
+              "k2x9m7nPqR"
+            ]
+          }
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "PATCH",
+        "path": "/boards/id-1",
+        "query": "",
+        "url": "https://behavior.test/boards/id-1",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"board\":{\"name\":\"Renamed Board\",\"user_ids\":[\"k2x9m7nPqR\"]}}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"m2z5x3nOJa\",\"name\":\"Cloud Services\",\"public_token\":\"abc123def456\",\"created_at\":\"2025-09-12T12:35:54Z\",\"updated_at\":\"2025-09-12T12:40:54Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "m2z5x3nOJa",
+            "name": "Cloud Services",
+            "public_token": "abc123def456",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-6",
+      "operationId": "deleteBoard",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/boards/{id}",
+        "pathParameters": {
+          "id": "id-1"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/boards/id-1",
+        "query": "",
+        "url": "https://behavior.test/boards/id-1",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false}",
+        "value": {
+          "success": false
+        }
+      }
+    },
+    {
+      "id": "behavior-7",
+      "operationId": "listServiceComponents",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/services/{service_id}/components",
+        "pathParameters": {
+          "service_id": "service-1"
+        },
+        "query": [
+          {
+            "name": "page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          },
+          {
+            "name": "per_page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/services/service-1/components",
+        "query": "page=30&per_page=30",
+        "url": "https://behavior.test/services/service-1/components?page=30&per_page=30",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"id\":\"k2x9m7nPqR\",\"name\":\"API\",\"group_name\":\"Core Services\",\"service_id\":\"k2x9m7nPqR\",\"created_at\":\"2025-09-12T12:35:54Z\",\"updated_at\":\"2025-09-12T12:40:54Z\"}],\"pagination\":{\"current_page\":30,\"per_page\":30,\"total_pages\":30,\"total_count\":100,\"next_page\":30,\"prev_page\":30}}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "API",
+              "group_name": "Core Services",
+              "service_id": "k2x9m7nPqR",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-8",
+      "operationId": "createCustomMonitor",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/boards/{board_id}/custom_monitors",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "My Custom Service",
+          "description": "Internal service we manually update",
+          "metadata": {},
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/boards/board-1/custom_monitors",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/custom_monitors",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"My Custom Service\",\"description\":\"Internal service we manually update\",\"metadata\":{},\"monitor_group_id\":\"x5y2m8nQrS\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"x5y2m8nQrS\",\"name\":\"My Custom Monitor\",\"description\":\"Custom service we manually update\",\"metadata\":{\"key\":\"key\"},\"monitor_group_id\":\"x5y2m8nQrS\",\"status\":\"up\",\"created_at\":\"2025-09-19T09:00:00Z\",\"updated_at\":\"2025-09-19T10:30:00Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Custom Monitor",
+            "description": "Custom service we manually update",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-9",
+      "operationId": "updateCustomMonitor",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PATCH",
+        "pathTemplate": "/boards/{board_id}/custom_monitors/{id}",
+        "pathParameters": {
+          "board_id": "board-1",
+          "id": "id-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "Updated Custom Service",
+          "description": "Updated description",
+          "metadata": {},
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "PATCH",
+        "path": "/boards/board-1/custom_monitors/id-1",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/custom_monitors/id-1",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"Updated Custom Service\",\"description\":\"Updated description\",\"metadata\":{},\"monitor_group_id\":\"x5y2m8nQrS\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"x5y2m8nQrS\",\"name\":\"My Custom Monitor\",\"description\":\"Custom service we manually update\",\"metadata\":{\"key\":\"key\"},\"monitor_group_id\":\"x5y2m8nQrS\",\"status\":\"up\",\"created_at\":\"2025-09-19T09:00:00Z\",\"updated_at\":\"2025-09-19T10:30:00Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Custom Monitor",
+            "description": "Custom service we manually update",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-10",
+      "operationId": "deleteCustomMonitor",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/boards/{board_id}/custom_monitors/{id}",
+        "pathParameters": {
+          "board_id": "board-1",
+          "id": "id-1"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/boards/board-1/custom_monitors/id-1",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/custom_monitors/id-1",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false}",
+        "value": {
+          "success": false
+        }
+      }
+    },
+    {
+      "id": "behavior-11",
+      "operationId": "createIncidentUpdate",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/boards/{board_id}/incidents/{incident_id}/incident_updates",
+        "pathParameters": {
+          "board_id": "board-1",
+          "incident_id": "incident-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "details": "We have identified the root cause and are working on a fix.",
+          "phase": "investigating",
+          "severity": "major",
+          "posted_at": "2023-10-01T12:30:00Z",
+          "notify_subscribers": true,
+          "monitors": [
+            {
+              "id": "sadfkfefw",
+              "status": "down"
+            },
+            {
+              "id": "dfeweqes",
+              "status": "warn"
+            }
+          ]
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/boards/board-1/incidents/incident-1/incident_updates",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/incidents/incident-1/incident_updates",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"details\":\"We have identified the root cause and are working on a fix.\",\"phase\":\"investigating\",\"severity\":\"major\",\"posted_at\":\"2023-10-01T12:30:00Z\",\"notify_subscribers\":true,\"monitors\":[{\"id\":\"sadfkfefw\",\"status\":\"down\"},{\"id\":\"dfeweqes\",\"status\":\"warn\"}]}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":123,\"incident_id\":\"abc123def\",\"details\":\"We have identified the root cause and are working on a fix.\",\"phase\":\"identified\",\"severity\":\"major\",\"posted_at\":\"2023-10-01T12:30:00Z\",\"notify_subscribers\":true,\"created_at\":\"2023-10-01T12:30:00Z\",\"updated_at\":\"2023-10-01T12:30:00Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": 123,
+            "incident_id": "abc123def",
+            "details": "We have identified the root cause and are working on a fix.",
+            "phase": "identified",
+            "severity": "major",
+            "posted_at": "2023-10-01T12:30:00Z",
+            "notify_subscribers": true,
+            "created_at": "2023-10-01T12:30:00Z",
+            "updated_at": "2023-10-01T12:30:00Z"
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-12",
+      "operationId": "listIncidents",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards/{board_id}/incidents",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [
+          {
+            "name": "page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          },
+          {
+            "name": "per_page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          },
+          {
+            "name": "phase",
+            "style": "form",
+            "explode": true,
+            "value": "phase",
+            "serialized": "phase"
+          },
+          {
+            "name": "severity",
+            "style": "form",
+            "explode": true,
+            "value": "severity",
+            "serialized": "severity"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards/board-1/incidents",
+        "query": "page=30&per_page=30&phase=phase&severity=severity",
+        "url": "https://behavior.test/boards/board-1/incidents?page=30&per_page=30&phase=phase&severity=severity",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"id\":\"abc123def\",\"name\":\"Database outage\",\"details\":\"We are currently experiencing a database outage affecting all services.\",\"started_at\":\"2023-10-01T12:00:00Z\",\"resolved_at\":\"2023-10-01T14:30:00Z\",\"phase\":\"investigating\",\"severity\":\"major\",\"will_start_at\":\"2023-10-02T02:00:00Z\",\"will_end_at\":\"2023-10-02T04:00:00Z\",\"auto_complete_maintenance\":false,\"board_id\":\"lh16iGAYKI\",\"duration\":150.5,\"maintenance_duration\":120,\"scheduled_maintenance\":false,\"resolved_or_completed\":false,\"created_at\":\"2023-10-01T11:45:00Z\",\"updated_at\":\"2023-10-01T12:15:00Z\"}],\"pagination\":{\"current_page\":30,\"per_page\":30,\"total_pages\":30,\"total_count\":100,\"next_page\":30,\"prev_page\":30}}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "id": "abc123def",
+              "name": "Database outage",
+              "details": "We are currently experiencing a database outage affecting all services.",
+              "started_at": "2023-10-01T12:00:00Z",
+              "resolved_at": "2023-10-01T14:30:00Z",
+              "phase": "investigating",
+              "severity": "major",
+              "will_start_at": "2023-10-02T02:00:00Z",
+              "will_end_at": "2023-10-02T04:00:00Z",
+              "auto_complete_maintenance": false,
+              "board_id": "lh16iGAYKI",
+              "duration": 150.5,
+              "maintenance_duration": 120,
+              "scheduled_maintenance": false,
+              "resolved_or_completed": false,
+              "created_at": "2023-10-01T11:45:00Z",
+              "updated_at": "2023-10-01T12:15:00Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-13",
+      "operationId": "createIncident",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/boards/{board_id}/incidents",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "incident": {
+            "name": "Database outage",
+            "details": "We are currently experiencing a database outage affecting all services. Our team is actively working to resolve the issue. We will provide updates as soon as possible.",
+            "started_at": "2023-10-01T12:00:00Z",
+            "ended_at": "2023-10-01T14:00:00Z",
+            "will_start_at": "2023-10-05T01:00:00Z",
+            "will_end_at": "2023-10-05T03:00:00Z",
+            "phase": "investigating",
+            "severity": "major",
+            "notify_subscribers": true,
+            "monitors": [
+              {
+                "id": "sadfkfefw",
+                "status": "down"
+              },
+              {
+                "id": "dfeweqes",
+                "status": "down"
+              }
+            ]
+          }
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/boards/board-1/incidents",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/incidents",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"incident\":{\"name\":\"Database outage\",\"details\":\"We are currently experiencing a database outage affecting all services. Our team is actively working to resolve the issue. We will provide updates as soon as possible.\",\"started_at\":\"2023-10-01T12:00:00Z\",\"ended_at\":\"2023-10-01T14:00:00Z\",\"will_start_at\":\"2023-10-05T01:00:00Z\",\"will_end_at\":\"2023-10-05T03:00:00Z\",\"phase\":\"investigating\",\"severity\":\"major\",\"notify_subscribers\":true,\"monitors\":[{\"id\":\"sadfkfefw\",\"status\":\"down\"},{\"id\":\"dfeweqes\",\"status\":\"down\"}]}}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"abc123def\",\"name\":\"Database outage\",\"details\":\"We are currently experiencing a database outage affecting all services.\",\"started_at\":\"2023-10-01T12:00:00Z\",\"resolved_at\":\"2023-10-01T14:30:00Z\",\"phase\":\"investigating\",\"severity\":\"major\",\"will_start_at\":\"2023-10-02T02:00:00Z\",\"will_end_at\":\"2023-10-02T04:00:00Z\",\"auto_complete_maintenance\":false,\"board_id\":\"lh16iGAYKI\",\"duration\":150.5,\"maintenance_duration\":120,\"scheduled_maintenance\":false,\"resolved_or_completed\":false,\"created_at\":\"2023-10-01T11:45:00Z\",\"updated_at\":\"2023-10-01T12:15:00Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "abc123def",
+            "name": "Database outage",
+            "details": "We are currently experiencing a database outage affecting all services.",
+            "started_at": "2023-10-01T12:00:00Z",
+            "resolved_at": "2023-10-01T14:30:00Z",
+            "phase": "investigating",
+            "severity": "major",
+            "will_start_at": "2023-10-02T02:00:00Z",
+            "will_end_at": "2023-10-02T04:00:00Z",
+            "auto_complete_maintenance": false,
+            "board_id": "lh16iGAYKI",
+            "duration": 150.5,
+            "maintenance_duration": 120,
+            "scheduled_maintenance": false,
+            "resolved_or_completed": false,
+            "created_at": "2023-10-01T11:45:00Z",
+            "updated_at": "2023-10-01T12:15:00Z"
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-14",
+      "operationId": "listMonitorComponents",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards/{board_id}/monitors/{monitor_id}/components",
+        "pathParameters": {
+          "board_id": "board-1",
+          "monitor_id": "monitor-1"
+        },
+        "query": [
+          {
+            "name": "page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          },
+          {
+            "name": "per_page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          },
+          {
+            "name": "status",
+            "style": "form",
+            "explode": true,
+            "value": "active",
+            "serialized": "active"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards/board-1/monitors/monitor-1/components",
+        "query": "page=30&per_page=30&status=active",
+        "url": "https://behavior.test/boards/board-1/monitors/monitor-1/components?page=30&per_page=30&status=active",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"id\":\"k2x9m7nPqR\",\"name\":\"API\",\"group_name\":\"Core Services\",\"service_id\":\"k2x9m7nPqR\",\"status\":\"up\",\"created_at\":\"2025-09-12T12:35:54Z\",\"updated_at\":\"2025-09-12T12:40:54Z\"}],\"pagination\":{\"current_page\":30,\"per_page\":30,\"total_pages\":30,\"total_count\":100,\"next_page\":30,\"prev_page\":30}}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "API",
+              "group_name": "Core Services",
+              "service_id": "k2x9m7nPqR",
+              "status": "up",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-15",
+      "operationId": "listMonitorGroups",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards/{board_id}/monitor_groups",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [
+          {
+            "name": "page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          },
+          {
+            "name": "per_page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards/board-1/monitor_groups",
+        "query": "page=30&per_page=30",
+        "url": "https://behavior.test/boards/board-1/monitor_groups?page=30&per_page=30",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"id\":\"x5y2m8nQrS\",\"name\":\"Production Services\",\"position\":1,\"created_at\":\"2025-09-19T09:00:00Z\",\"updated_at\":\"2025-09-19T10:30:00Z\"}],\"pagination\":{\"current_page\":30,\"per_page\":30,\"total_pages\":30,\"total_count\":100,\"next_page\":30,\"prev_page\":30}}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "id": "x5y2m8nQrS",
+              "name": "Production Services",
+              "position": 1,
+              "created_at": "2025-09-19T09:00:00Z",
+              "updated_at": "2025-09-19T10:30:00Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-16",
+      "operationId": "createMonitorGroup",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/boards/{board_id}/monitor_groups",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "monitor_group": {
+            "name": "Production Services",
+            "position": 1
+          }
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/boards/board-1/monitor_groups",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/monitor_groups",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"monitor_group\":{\"name\":\"Production Services\",\"position\":1}}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"x5y2m8nQrS\",\"name\":\"Production Services\",\"position\":1,\"created_at\":\"2025-09-19T09:00:00Z\",\"updated_at\":\"2025-09-19T10:30:00Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "Production Services",
+            "position": 1,
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-17",
+      "operationId": "getMonitorGroup",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards/{board_id}/monitor_groups/{id}",
+        "pathParameters": {
+          "board_id": "board-1",
+          "id": "id-1"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards/board-1/monitor_groups/id-1",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/monitor_groups/id-1",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"x5y2m8nQrS\",\"name\":\"Production Services\",\"position\":1,\"created_at\":\"2025-09-19T09:00:00Z\",\"updated_at\":\"2025-09-19T10:30:00Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "Production Services",
+            "position": 1,
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-18",
+      "operationId": "updateMonitorGroup",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PATCH",
+        "pathTemplate": "/boards/{board_id}/monitor_groups/{id}",
+        "pathParameters": {
+          "board_id": "board-1",
+          "id": "id-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "monitor_group": {
+            "name": "Production Services",
+            "position": 1
+          }
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "PATCH",
+        "path": "/boards/board-1/monitor_groups/id-1",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/monitor_groups/id-1",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"monitor_group\":{\"name\":\"Production Services\",\"position\":1}}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"x5y2m8nQrS\",\"name\":\"Production Services\",\"position\":1,\"created_at\":\"2025-09-19T09:00:00Z\",\"updated_at\":\"2025-09-19T10:30:00Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "Production Services",
+            "position": 1,
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-19",
+      "operationId": "deleteMonitorGroup",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/boards/{board_id}/monitor_groups/{id}",
+        "pathParameters": {
+          "board_id": "board-1",
+          "id": "id-1"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/boards/board-1/monitor_groups/id-1",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/monitor_groups/id-1",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false}",
+        "value": {
+          "success": false
+        }
+      }
+    },
+    {
+      "id": "behavior-20",
+      "operationId": "listMonitoringRegions",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/monitoring_regions",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/monitoring_regions",
+        "query": "",
+        "url": "https://behavior.test/monitoring_regions",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"region_id\":\"us-east\",\"dns_name\":\"monitor-us-east.statusgator.com\",\"ip_address\":\"52.1.2.3\",\"provider\":\"AWS\",\"code\":\"us-east-1\",\"name\":\"US East\",\"desc\":\"US East (N. Virginia)\",\"icon_url\":\"https://statusgator.com/assets/external_logos/aws.png\",\"color\":\"#1a5db2\"}]}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "region_id": "us-east",
+              "dns_name": "monitor-us-east.statusgator.com",
+              "ip_address": "52.1.2.3",
+              "provider": "AWS",
+              "code": "us-east-1",
+              "name": "US East",
+              "desc": "US East (N. Virginia)",
+              "icon_url": "https://statusgator.com/assets/external_logos/aws.png",
+              "color": "#1a5db2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-21",
+      "operationId": "getBoardMonitors",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards/{board_id}/monitors",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [
+          {
+            "name": "status",
+            "style": "form",
+            "explode": true,
+            "value": "active",
+            "serialized": "active"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards/board-1/monitors",
+        "query": "status=active",
+        "url": "https://behavior.test/boards/board-1/monitors?status=active",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"id\":\"uVLl2YK1rn\",\"checked_at\":\"2025-09-05T23:05:23.463Z\",\"created_at\":\"2023-07-06T14:18:35.607Z\",\"updated_at\":\"2023-07-06T14:18:35.607Z\",\"filtered_status\":\"warn\",\"description\":null,\"metadata\":{\"key\":\"key\"},\"unfiltered_status\":\"warn\",\"last_message\":\"CGK (Jakarta) on 2025-09-05\",\"last_details\":\"In progress - Scheduled maintenance is currently in progress. We will provide updates as necessary. Sep 05, 2025 - 22:00 UTC\",\"overridden_message\":null,\"overridden_status\":null,\"overrides_locked_at\":null,\"paused_at\":null,\"filter_count\":0,\"icon_url\":\"https://favicons-dev.statusgator.com/FiM8Ile0FV3wLjxF.jpg\",\"position\":3,\"monitor_type\":\"ServiceMonitor\",\"early_warning_signal\":false,\"display_name\":\"Cloudflare\",\"service\":{\"id\":\"PQNMcnNFWw\",\"name\":\"Cloudflare\",\"slug\":\"cloudflare\",\"home_page_url\":\"http://www.cloudflare.com\",\"status_page_url\":\"https://www.cloudflarestatus.com\",\"icon_url\":\"https://favicons-dev.statusgator.com/FiM8Ile0FV3wLjxF.jpg\",\"landing_page_url\":\"https://studio.colinabartlett.com:3004/services/cloudflare\",\"official\":true,\"rating\":{\"letter_grade\":\"A\",\"description\":\"Excellent\",\"average_delay_minutes\":8.3}},\"group\":{\"id\":\"k2x9m7nPqR\",\"name\":\"Infrastructure\",\"position\":1}}]}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "id": "uVLl2YK1rn",
+              "checked_at": "2025-09-05T23:05:23.463Z",
+              "created_at": "2023-07-06T14:18:35.607Z",
+              "updated_at": "2023-07-06T14:18:35.607Z",
+              "filtered_status": "warn",
+              "description": null,
+              "metadata": {
+                "key": "key"
+              },
+              "unfiltered_status": "warn",
+              "last_message": "CGK (Jakarta) on 2025-09-05",
+              "last_details": "In progress - Scheduled maintenance is currently in progress. We will provide updates as necessary. Sep 05, 2025 - 22:00 UTC",
+              "overridden_message": null,
+              "overridden_status": null,
+              "overrides_locked_at": null,
+              "paused_at": null,
+              "filter_count": 0,
+              "icon_url": "https://favicons-dev.statusgator.com/FiM8Ile0FV3wLjxF.jpg",
+              "position": 3,
+              "monitor_type": "ServiceMonitor",
+              "early_warning_signal": false,
+              "display_name": "Cloudflare",
+              "service": {
+                "id": "PQNMcnNFWw",
+                "name": "Cloudflare",
+                "slug": "cloudflare",
+                "home_page_url": "http://www.cloudflare.com",
+                "status_page_url": "https://www.cloudflarestatus.com",
+                "icon_url": "https://favicons-dev.statusgator.com/FiM8Ile0FV3wLjxF.jpg",
+                "landing_page_url": "https://studio.colinabartlett.com:3004/services/cloudflare",
+                "official": true,
+                "rating": {
+                  "letter_grade": "A",
+                  "description": "Excellent",
+                  "average_delay_minutes": 8.3
+                }
+              },
+              "group": {
+                "id": "k2x9m7nPqR",
+                "name": "Infrastructure",
+                "position": 1
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-22",
+      "operationId": "listOutageReports",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards/{board_id}/outage_reports",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [
+          {
+            "name": "since",
+            "style": "form",
+            "explode": true,
+            "value": "since",
+            "serialized": "since"
+          },
+          {
+            "name": "page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          },
+          {
+            "name": "per_page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards/board-1/outage_reports",
+        "query": "since=since&page=30&per_page=30",
+        "url": "https://behavior.test/boards/board-1/outage_reports?since=since&page=30&per_page=30",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"id\":\"abc123def\",\"service\":{\"id\":\"k2x9m7nPqR\",\"name\":\"Amazon Web Services\",\"icon_url\":\"https://statusgator.com/favicons/aws.png\",\"official\":true},\"monitor\":{\"id\":\"uVLl2YK1rn\",\"name\":\"My Website Monitor\",\"monitor_type\":\"WebsiteMonitor\",\"icon_url\":\"https://statusgator.com/favicons/example.png\"},\"summary\":{\"id\":\"uw2YK1rnl0\",\"description\":\"Service down\"},\"comment\":\"API returning 500s\",\"email\":\"reporter@example.com\",\"components\":[{\"id\":\"k2x9m7nPqR\",\"name\":\"API\",\"group_name\":\"Core Services\"}],\"location\":{\"city\":\"Seattle\",\"region\":\"Washington\",\"country\":\"United States\",\"country_code\":\"US\"},\"confirmed_at\":\"2023-10-01T12:00:00Z\",\"created_at\":\"2023-10-01T12:00:00Z\"}],\"pagination\":{\"current_page\":30,\"per_page\":30,\"total_pages\":30,\"total_count\":100,\"next_page\":30,\"prev_page\":30}}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "id": "abc123def",
+              "service": {
+                "id": "k2x9m7nPqR",
+                "name": "Amazon Web Services",
+                "icon_url": "https://statusgator.com/favicons/aws.png",
+                "official": true
+              },
+              "monitor": {
+                "id": "uVLl2YK1rn",
+                "name": "My Website Monitor",
+                "monitor_type": "WebsiteMonitor",
+                "icon_url": "https://statusgator.com/favicons/example.png"
+              },
+              "summary": {
+                "id": "uw2YK1rnl0",
+                "description": "Service down"
+              },
+              "comment": "API returning 500s",
+              "email": "reporter@example.com",
+              "components": [
+                {
+                  "id": "k2x9m7nPqR",
+                  "name": "API",
+                  "group_name": "Core Services"
+                }
+              ],
+              "location": {
+                "city": "Seattle",
+                "region": "Washington",
+                "country": "United States",
+                "country_code": "US"
+              },
+              "confirmed_at": "2023-10-01T12:00:00Z",
+              "created_at": "2023-10-01T12:00:00Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-23",
+      "operationId": "createOutageReport",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/boards/{board_id}/outage_reports",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "outage_report": {
+            "monitor_id": "abc123def",
+            "comment": "API returning 500s",
+            "email": "reporter@example.com",
+            "component_ids": [
+              "comp1",
+              "comp2"
+            ]
+          }
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/boards/board-1/outage_reports",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/outage_reports",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"outage_report\":{\"monitor_id\":\"abc123def\",\"comment\":\"API returning 500s\",\"email\":\"reporter@example.com\",\"component_ids\":[\"comp1\",\"comp2\"]}}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"abc123def\",\"service\":{\"id\":\"k2x9m7nPqR\",\"name\":\"Amazon Web Services\",\"icon_url\":\"https://statusgator.com/favicons/aws.png\",\"official\":true},\"monitor\":{\"id\":\"uVLl2YK1rn\",\"name\":\"My Website Monitor\",\"monitor_type\":\"WebsiteMonitor\",\"icon_url\":\"https://statusgator.com/favicons/example.png\"},\"summary\":{\"id\":\"uw2YK1rnl0\",\"description\":\"Service down\"},\"comment\":\"API returning 500s\",\"email\":\"reporter@example.com\",\"components\":[{\"id\":\"k2x9m7nPqR\",\"name\":\"API\",\"group_name\":\"Core Services\"}],\"location\":{\"city\":\"Seattle\",\"region\":\"Washington\",\"country\":\"United States\",\"country_code\":\"US\"},\"confirmed_at\":\"2023-10-01T12:00:00Z\",\"created_at\":\"2023-10-01T12:00:00Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "abc123def",
+            "service": {
+              "id": "k2x9m7nPqR",
+              "name": "Amazon Web Services",
+              "icon_url": "https://statusgator.com/favicons/aws.png",
+              "official": true
+            },
+            "monitor": {
+              "id": "uVLl2YK1rn",
+              "name": "My Website Monitor",
+              "monitor_type": "WebsiteMonitor",
+              "icon_url": "https://statusgator.com/favicons/example.png"
+            },
+            "summary": {
+              "id": "uw2YK1rnl0",
+              "description": "Service down"
+            },
+            "comment": "API returning 500s",
+            "email": "reporter@example.com",
+            "components": [
+              {
+                "id": "k2x9m7nPqR",
+                "name": "API",
+                "group_name": "Core Services"
+              }
+            ],
+            "location": {
+              "city": "Seattle",
+              "region": "Washington",
+              "country": "United States",
+              "country_code": "US"
+            },
+            "confirmed_at": "2023-10-01T12:00:00Z",
+            "created_at": "2023-10-01T12:00:00Z"
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-24",
+      "operationId": "getPingMonitorMetrics",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards/{board_id}/ping_monitors/{id}/metrics",
+        "pathParameters": {
+          "board_id": "board-1",
+          "id": "id-1"
+        },
+        "query": [
+          {
+            "name": "period",
+            "style": "form",
+            "explode": true,
+            "value": "period",
+            "serialized": "period"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards/board-1/ping_monitors/id-1/metrics",
+        "query": "period=period",
+        "url": "https://behavior.test/boards/board-1/ping_monitors/id-1/metrics?period=period",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":true,\"data\":{\"monitor_id\":\"k2x9m7nPqR\",\"period\":\"24h\",\"summary\":[{\"region\":\"eu-west-1\",\"average_duration\":60,\"min_duration\":30,\"max_duration\":140,\"p95_duration\":110,\"p99_duration\":130}],\"data_points\":[{\"bucket\":\"2026-06-14T12:00:00Z\",\"region\":\"eu-west-1\",\"average_duration\":58,\"p95_duration\":100,\"p99_duration\":125}]}}",
+        "value": {
+          "success": true,
+          "data": {
+            "monitor_id": "k2x9m7nPqR",
+            "period": "24h",
+            "summary": [
+              {
+                "region": "eu-west-1",
+                "average_duration": 60,
+                "min_duration": 30,
+                "max_duration": 140,
+                "p95_duration": 110,
+                "p99_duration": 130
+              }
+            ],
+            "data_points": [
+              {
+                "bucket": "2026-06-14T12:00:00Z",
+                "region": "eu-west-1",
+                "average_duration": 58,
+                "p95_duration": 100,
+                "p99_duration": 125
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-25",
+      "operationId": "createPingMonitor",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/boards/{board_id}/ping_monitors",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "My Ping Monitor",
+          "url": "example.com",
+          "description": "Production server monitoring",
+          "check_interval": 5,
+          "check_regions": [
+            "us-east",
+            "us-west"
+          ],
+          "alert_any_location": false,
+          "timeout": 30,
+          "retry_count": 0,
+          "metadata": {},
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/boards/board-1/ping_monitors",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/ping_monitors",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"My Ping Monitor\",\"url\":\"example.com\",\"description\":\"Production server monitoring\",\"check_interval\":5,\"check_regions\":[\"us-east\",\"us-west\"],\"alert_any_location\":false,\"timeout\":30,\"retry_count\":0,\"metadata\":{},\"monitor_group_id\":\"x5y2m8nQrS\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"x5y2m8nQrS\",\"name\":\"My Ping Monitor\",\"url\":\"example.com\",\"description\":\"Production server monitoring\",\"metadata\":{\"key\":\"key\"},\"monitor_group_id\":\"x5y2m8nQrS\",\"status\":\"up\",\"last_checked_at\":\"2025-09-19T10:30:00Z\",\"created_at\":\"2025-09-19T09:00:00Z\",\"updated_at\":\"2025-09-19T10:30:00Z\",\"check_interval\":5,\"check_regions\":[\"us-east\",\"us-west\"],\"alert_any_location\":false,\"timeout\":30,\"retry_count\":0,\"paused_at\":null}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Ping Monitor",
+            "url": "example.com",
+            "description": "Production server monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "timeout": 30,
+            "retry_count": 0,
+            "paused_at": null
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-26",
+      "operationId": "updatePingMonitor",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PATCH",
+        "pathTemplate": "/boards/{board_id}/ping_monitors/{id}",
+        "pathParameters": {
+          "board_id": "board-1",
+          "id": "id-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "Updated Ping Monitor",
+          "url": "updated-example.com",
+          "description": "Updated production server monitoring",
+          "check_interval": 3,
+          "check_regions": [
+            "us-east",
+            "eu-west"
+          ],
+          "alert_any_location": true,
+          "timeout": 60,
+          "retry_count": 2,
+          "metadata": {},
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "PATCH",
+        "path": "/boards/board-1/ping_monitors/id-1",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/ping_monitors/id-1",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"Updated Ping Monitor\",\"url\":\"updated-example.com\",\"description\":\"Updated production server monitoring\",\"check_interval\":3,\"check_regions\":[\"us-east\",\"eu-west\"],\"alert_any_location\":true,\"timeout\":60,\"retry_count\":2,\"metadata\":{},\"monitor_group_id\":\"x5y2m8nQrS\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"x5y2m8nQrS\",\"name\":\"My Ping Monitor\",\"url\":\"example.com\",\"description\":\"Production server monitoring\",\"metadata\":{\"key\":\"key\"},\"monitor_group_id\":\"x5y2m8nQrS\",\"status\":\"up\",\"last_checked_at\":\"2025-09-19T10:30:00Z\",\"created_at\":\"2025-09-19T09:00:00Z\",\"updated_at\":\"2025-09-19T10:30:00Z\",\"check_interval\":5,\"check_regions\":[\"us-east\",\"us-west\"],\"alert_any_location\":false,\"timeout\":30,\"retry_count\":0,\"paused_at\":null}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Ping Monitor",
+            "url": "example.com",
+            "description": "Production server monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "timeout": 30,
+            "retry_count": 0,
+            "paused_at": null
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-27",
+      "operationId": "pausePingMonitor",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/boards/{board_id}/ping_monitors/{id}/pause",
+        "pathParameters": {
+          "board_id": "board-1",
+          "id": "id-1"
+        },
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/boards/board-1/ping_monitors/id-1/pause",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/ping_monitors/id-1/pause",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"x5y2m8nQrS\",\"name\":\"My Ping Monitor\",\"url\":\"example.com\",\"description\":\"Production server monitoring\",\"metadata\":{\"key\":\"key\"},\"monitor_group_id\":\"x5y2m8nQrS\",\"status\":\"up\",\"last_checked_at\":\"2025-09-19T10:30:00Z\",\"created_at\":\"2025-09-19T09:00:00Z\",\"updated_at\":\"2025-09-19T10:30:00Z\",\"check_interval\":5,\"check_regions\":[\"us-east\",\"us-west\"],\"alert_any_location\":false,\"timeout\":30,\"retry_count\":0,\"paused_at\":null}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Ping Monitor",
+            "url": "example.com",
+            "description": "Production server monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "timeout": 30,
+            "retry_count": 0,
+            "paused_at": null
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-28",
+      "operationId": "ping",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/ping",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/ping",
+        "query": "",
+        "url": "https://behavior.test/ping",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"message\":\"pong\",\"organization\":{\"id\":\"k2x9m7nPqR\",\"name\":\"Acme Inc\",\"timezone\":\"America/New_York\"},\"token\":{\"id\":\"p8Wq3rTv5Z\",\"name\":\"Integration token\",\"scope\":\"organization\",\"permission\":\"full\",\"source\":\"dashboard\",\"created_at\":\"2025-01-15T10:30:00Z\",\"expires_at\":\"2026-01-15T10:30:00Z\",\"user\":{\"id\":\"k2x9m7nPqR\",\"email\":\"user@example.com\"}}}}",
+        "value": {
+          "success": false,
+          "data": {
+            "message": "pong",
+            "organization": {
+              "id": "k2x9m7nPqR",
+              "name": "Acme Inc",
+              "timezone": "America/New_York"
+            },
+            "token": {
+              "id": "p8Wq3rTv5Z",
+              "name": "Integration token",
+              "scope": "organization",
+              "permission": "full",
+              "source": "dashboard",
+              "created_at": "2025-01-15T10:30:00Z",
+              "expires_at": "2026-01-15T10:30:00Z",
+              "user": {
+                "id": "k2x9m7nPqR",
+                "email": "user@example.com"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-29",
+      "operationId": "updateServiceMonitor",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "PATCH",
+        "pathTemplate": "/boards/{board_id}/service_monitors/{id}",
+        "pathParameters": {
+          "board_id": "board-1",
+          "id": "id-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "name": "GitHub Status",
+          "description": "Updated description",
+          "metadata": {},
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "PATCH",
+        "path": "/boards/board-1/service_monitors/id-1",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/service_monitors/id-1",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"name\":\"GitHub Status\",\"description\":\"Updated description\",\"metadata\":{},\"monitor_group_id\":\"x5y2m8nQrS\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"x5y2m8nQrS\",\"name\":\"GitHub\",\"description\":\"Monitor GitHub status page\",\"metadata\":{\"key\":\"key\"},\"monitor_group_id\":\"x5y2m8nQrS\",\"service_id\":\"abc123xyz\",\"created_at\":\"2025-09-19T09:00:00Z\",\"updated_at\":\"2025-09-19T10:30:00Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "GitHub",
+            "description": "Monitor GitHub status page",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "service_id": "abc123xyz",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-30",
+      "operationId": "listMonitorRelationships",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "path-serialization",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards/{board_id}/monitors/{monitor_id}/relationships",
+        "pathParameters": {
+          "board_id": "board-1",
+          "monitor_id": "monitor-1"
+        },
+        "query": [
+          {
+            "name": "page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          },
+          {
+            "name": "per_page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards/board-1/monitors/monitor-1/relationships",
+        "query": "page=30&per_page=30",
+        "url": "https://behavior.test/boards/board-1/monitors/monitor-1/relationships?page=30&per_page=30",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"id\":\"aBcD1234eF\",\"relationship_type\":\"depends_on\",\"service\":{\"id\":\"k2x9m7nPqR\",\"name\":\"Amazon Web Services\",\"icon_url\":\"https://statusgator.com/favicons/aws.png\",\"official\":true},\"monitor\":{\"id\":\"uVLl2YK1rn\",\"name\":\"My Website Monitor\",\"monitor_type\":\"WebsiteMonitor\",\"icon_url\":\"https://statusgator.com/favicons/example.png\"},\"source\":{\"method\":\"manual\"},\"created_at\":\"2025-09-12T12:35:54Z\",\"updated_at\":\"2025-09-12T12:40:54Z\"}],\"pagination\":{\"current_page\":30,\"per_page\":30,\"total_pages\":30,\"total_count\":100,\"next_page\":30,\"prev_page\":30}}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "id": "aBcD1234eF",
+              "relationship_type": "depends_on",
+              "service": {
+                "id": "k2x9m7nPqR",
+                "name": "Amazon Web Services",
+                "icon_url": "https://statusgator.com/favicons/aws.png",
+                "official": true
+              },
+              "monitor": {
+                "id": "uVLl2YK1rn",
+                "name": "My Website Monitor",
+                "monitor_type": "WebsiteMonitor",
+                "icon_url": "https://statusgator.com/favicons/example.png"
+              },
+              "source": {
+                "method": "manual"
+              },
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-31",
+      "operationId": "listServices",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/services",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          },
+          {
+            "name": "per_page",
+            "style": "form",
+            "explode": true,
+            "value": 30,
+            "serialized": "30"
+          },
+          {
+            "name": "created_after",
+            "style": "form",
+            "explode": true,
+            "value": "created_after",
+            "serialized": "created_after"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/services",
+        "query": "page=30&per_page=30&created_after=created_after",
+        "url": "https://behavior.test/services?page=30&per_page=30&created_after=created_after",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"id\":\"k2x9m7nPqR\",\"name\":\"GitHub\",\"public_url\":\"https://www.githubstatus.com/\",\"home_page_url\":\"https://github.com\",\"description\":\"GitHub is a web-based version control and collaboration platform for software developers.\",\"created_at\":\"2025-09-12T12:35:54Z\",\"updated_at\":\"2025-09-12T12:40:54Z\",\"icon_url\":\"https://statusgator.com/favicons/github.png\",\"landing_page_url\":\"https://statusgator.com/services/github\",\"category_names\":[\"Development Tools\",\"Version Control\"],\"official\":true,\"rating\":{\"letter_grade\":\"A\",\"description\":\"Excellent\",\"average_delay_minutes\":8.3}}],\"pagination\":{\"current_page\":30,\"per_page\":30,\"total_pages\":30,\"total_count\":100,\"next_page\":30,\"prev_page\":30}}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "GitHub",
+              "public_url": "https://www.githubstatus.com/",
+              "home_page_url": "https://github.com",
+              "description": "GitHub is a web-based version control and collaboration platform for software developers.",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z",
+              "icon_url": "https://statusgator.com/favicons/github.png",
+              "landing_page_url": "https://statusgator.com/services/github",
+              "category_names": [
+                "Development Tools",
+                "Version Control"
+              ],
+              "official": true,
+              "rating": {
+                "letter_grade": "A",
+                "description": "Excellent",
+                "average_delay_minutes": 8.3
+              }
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        }
+      }
+    },
+    {
+      "id": "behavior-32",
+      "operationId": "searchServices",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-response",
+        "query-serialization"
+      ],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/services/search",
+        "pathParameters": {},
+        "query": [
+          {
+            "name": "q",
+            "style": "form",
+            "explode": true,
+            "value": "q",
+            "serialized": "q"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/services/search",
+        "query": "q=q",
+        "url": "https://behavior.test/services/search?q=q",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"id\":\"k2x9m7nPqR\",\"name\":\"GitHub\",\"public_url\":\"https://www.githubstatus.com/\",\"home_page_url\":\"https://github.com\",\"description\":\"GitHub is a web-based version control and collaboration platform for software developers.\",\"created_at\":\"2025-09-12T12:35:54Z\",\"updated_at\":\"2025-09-12T12:40:54Z\",\"icon_url\":\"https://statusgator.com/favicons/github.png\",\"landing_page_url\":\"https://statusgator.com/services/github\",\"category_names\":[\"Development Tools\",\"Version Control\"],\"official\":true,\"rating\":{\"letter_grade\":\"A\",\"description\":\"Excellent\",\"average_delay_minutes\":8.3}}]}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "GitHub",
+              "public_url": "https://www.githubstatus.com/",
+              "home_page_url": "https://github.com",
+              "description": "GitHub is a web-based version control and collaboration platform for software developers.",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z",
+              "icon_url": "https://statusgator.com/favicons/github.png",
+              "landing_page_url": "https://statusgator.com/services/github",
+              "category_names": [
+                "Development Tools",
+                "Version Control"
+              ],
+              "official": true,
+              "rating": {
+                "letter_grade": "A",
+                "description": "Excellent",
+                "average_delay_minutes": 8.3
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "behavior-33",
+      "operationId": "createStatusPageSubscriber",
+      "kinds": [
+        "auth-application",
+        "empty-response",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/boards/{board_id}/status_page_subscribers",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "subscriber": {
+            "email": "user@example.com",
+            "skip_confirmation": false,
+            "monitor_ids": [
+              "m2z5x3nOJa",
+              "k9p8q7rStU"
+            ]
+          }
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/boards/board-1/status_page_subscribers",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/status_page_subscribers",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"subscriber\":{\"email\":\"user@example.com\",\"skip_confirmation\":false,\"monitor_ids\":[\"m2z5x3nOJa\",\"k9p8q7rStU\"]}}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "empty",
+        "status": 204,
+        "mediaType": null,
+        "body": "",
+        "value": null
+      }
+    },
+    {
+      "id": "behavior-34",
+      "operationId": "deleteStatusPageSubscriber",
+      "kinds": [
+        "auth-application",
+        "error-response",
+        "json-request",
+        "json-response",
+        "path-serialization"
+      ],
+      "request": {
+        "method": "DELETE",
+        "pathTemplate": "/boards/{board_id}/status_page_subscribers",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [],
+        "headers": {},
+        "body": {
+          "id": "m2z5x3nOJa",
+          "email": "user@example.com"
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "DELETE",
+        "path": "/boards/board-1/status_page_subscribers",
+        "query": "",
+        "url": "https://behavior.test/boards/board-1/status_page_subscribers",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"id\":\"m2z5x3nOJa\",\"email\":\"user@example.com\"}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false}",
+        "value": {
+          "success": false
+        }
+      }
+    },
+    {
+      "id": "behavior-1-default-base-url",
+      "operationId": "getBoardHistory",
+      "kinds": [],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards/{board_id}/history",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [
+          {
+            "name": "start_date",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "end_date",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "monitor_id",
+            "style": "form",
+            "explode": true,
+            "value": "monitor-1",
+            "serialized": "monitor-1"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards/board-1/history",
+        "query": "start_date=2024-01-01T00%3A00%3A00Z&end_date=2024-01-01T00%3A00%3A00Z&monitor_id=monitor-1",
+        "url": "https://statusgator.com/api/v3/boards/board-1/history?start_date=2024-01-01T00%3A00%3A00Z&end_date=2024-01-01T00%3A00%3A00Z&monitor_id=monitor-1",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":[{\"monitor_id\":\"L1hZpHOn63\",\"name\":\"Zoom\",\"icon_url\":\"zoom.png\",\"status\":\"down\",\"started_at\":\"2025-09-12T12:00:00Z\",\"ended_at\":\"2025-09-12T13:00:00Z\",\"duration\":60,\"message\":\"Outage in progress\",\"details\":\"We are investigating\",\"early_warning_signal\":false}]}",
+        "value": {
+          "success": false,
+          "data": [
+            {
+              "monitor_id": "L1hZpHOn63",
+              "name": "Zoom",
+              "icon_url": "zoom.png",
+              "status": "down",
+              "started_at": "2025-09-12T12:00:00Z",
+              "ended_at": "2025-09-12T13:00:00Z",
+              "duration": 60,
+              "message": "Outage in progress",
+              "details": "We are investigating",
+              "early_warning_signal": false
+            }
+          ]
+        }
+      },
+      "probe": "default-base-url"
+    },
+    {
+      "id": "behavior-3-lost-response",
+      "operationId": "createBoard",
+      "kinds": [],
+      "request": {
+        "method": "POST",
+        "pathTemplate": "/boards",
+        "pathParameters": {},
+        "query": [],
+        "headers": {},
+        "body": {
+          "board": {
+            "name": "Cloud Services",
+            "user_ids": [
+              "k2x9m7nPqR"
+            ]
+          }
+        },
+        "bodyKind": "json",
+        "contentType": "application/json",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "POST",
+        "path": "/boards",
+        "query": "",
+        "url": "https://behavior.test/boards",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "bodyText": "{\"board\":{\"name\":\"Cloud Services\",\"user_ids\":[\"k2x9m7nPqR\"]}}",
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"success\":false,\"data\":{\"id\":\"m2z5x3nOJa\",\"name\":\"Cloud Services\",\"public_token\":\"abc123def456\",\"created_at\":\"2025-09-12T12:35:54Z\",\"updated_at\":\"2025-09-12T12:40:54Z\"}}",
+        "value": {
+          "success": false,
+          "data": {
+            "id": "m2z5x3nOJa",
+            "name": "Cloud Services",
+            "public_token": "abc123def456",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        }
+      },
+      "probe": "lost-response"
+    },
+    {
+      "id": "behavior-1-response-decode",
+      "operationId": "getBoardHistory",
+      "kinds": [],
+      "request": {
+        "method": "GET",
+        "pathTemplate": "/boards/{board_id}/history",
+        "pathParameters": {
+          "board_id": "board-1"
+        },
+        "query": [
+          {
+            "name": "start_date",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "end_date",
+            "style": "form",
+            "explode": true,
+            "value": "2024-01-01T00:00:00Z",
+            "serialized": "2024-01-01T00:00:00Z"
+          },
+          {
+            "name": "monitor_id",
+            "style": "form",
+            "explode": true,
+            "value": "monitor-1",
+            "serialized": "monitor-1"
+          }
+        ],
+        "headers": {},
+        "bodyKind": null,
+        "contentType": null,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "expect": {
+        "method": "GET",
+        "path": "/boards/board-1/history",
+        "query": "start_date=2024-01-01T00%3A00%3A00Z&end_date=2024-01-01T00%3A00%3A00Z&monitor_id=monitor-1",
+        "url": "https://behavior.test/boards/board-1/history?start_date=2024-01-01T00%3A00%3A00Z&end_date=2024-01-01T00%3A00%3A00Z&monitor_id=monitor-1",
+        "headers": {},
+        "bodyText": null,
+        "multipartFields": null
+      },
+      "response": {
+        "kind": "json",
+        "status": 200,
+        "mediaType": "application/json",
+        "body": "{\"truncated\": ",
+        "errorKind": "ResponseDecode"
+      },
+      "probe": "response-decode"
+    }
+  ]
+}

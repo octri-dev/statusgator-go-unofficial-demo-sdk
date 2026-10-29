@@ -1,0 +1,6749 @@
+[
+  {
+    "operationId": "getBoardUptimeReport",
+    "summary": "The \"Uptime by Monitor\" report for a board: per-monitor uptime percentages\nplus board-level totals (average uptime, monitor count, outage count, total\ndowntime) over the selected window.",
+    "method": "GET",
+    "pathTemplate": "/boards/{board_id}/reports/uptime",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/reports/uptime$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "k2x9m7nPqR",
+        "routeRepresentative": "k2x9m7nPqR"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "period",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "30d"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 3,
+      "parameterSegments": 1,
+      "totalSegments": 4,
+      "staticCharacterCount": 19,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 30,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": true,
+          "data": {
+            "period": "30d",
+            "total_monitors": 12,
+            "average_uptime_percentage": 99.95,
+            "outage_count": 3,
+            "total_downtime_minutes": 1.5,
+            "monitors": [
+              {
+                "monitor_id": "k2x9m7nPqR",
+                "name": "API Monitor",
+                "uptime_percentage": 99.95
+              }
+            ]
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "createIncidentUpdate",
+    "summary": "Create a new update for an existing incident. This allows you to provide status updates as you work to resolve the incident.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/incidents/{incident_id}/incident_updates",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/incidents/(?<sdkPath1>[^/]+)/incident_updates$",
+    "pathParams": [
+      "board_id",
+      "incident_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      },
+      {
+        "wireName": "incident_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "abc123def",
+        "routeRepresentative": "abc123def"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 3,
+      "parameterSegments": 2,
+      "totalSegments": 5,
+      "staticCharacterCount": 31,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 10,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [
+          "phase",
+          "severity"
+        ],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "details",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "phase",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "severity",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "posted_at",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "notify_subscribers",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "monitors",
+            "repeated": true,
+            "partKind": "json",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "details": "We have identified the root cause and are working on a fix.",
+          "phase": "investigating",
+          "severity": "major",
+          "posted_at": "2023-10-01T12:30:00Z",
+          "notify_subscribers": true,
+          "monitors": [
+            {
+              "id": "sadfkfefw",
+              "status": "down"
+            },
+            {
+              "id": "dfeweqes",
+              "status": "warn"
+            }
+          ]
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "201",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": 123,
+            "incident_id": "abc123def",
+            "details": "We have identified the root cause and are working on a fix.",
+            "phase": "identified",
+            "severity": "major",
+            "posted_at": "2023-10-01T12:30:00Z",
+            "notify_subscribers": true,
+            "created_at": "2023-10-01T12:30:00Z",
+            "updated_at": "2023-10-01T12:30:00Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "401": true,
+      "404": true,
+      "422": true
+    }
+  },
+  {
+    "operationId": "getWebsiteMonitorMetrics",
+    "summary": "Response-time metrics for a website monitor - the same data shown in the\nmonitor metrics tab: a per-region summary (average / min / max / p95 / p99\nin milliseconds) and the time-series data points used by the graph.",
+    "method": "GET",
+    "pathTemplate": "/boards/{board_id}/website_monitors/{id}/metrics",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/website_monitors/(?<sdkPath1>[^/]+)/metrics$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "k2x9m7nPqR",
+        "routeRepresentative": "k2x9m7nPqR"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "k2x9m7nPqR",
+        "routeRepresentative": "k2x9m7nPqR"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "period",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "24h"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 3,
+      "parameterSegments": 2,
+      "totalSegments": 5,
+      "staticCharacterCount": 29,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 41,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": true,
+          "data": {
+            "monitor_id": "k2x9m7nPqR",
+            "period": "24h",
+            "summary": [
+              {
+                "region": "us-east-1",
+                "average_duration": 120,
+                "min_duration": 48,
+                "max_duration": 310,
+                "p95_duration": 205,
+                "p99_duration": 288
+              }
+            ],
+            "data_points": [
+              {
+                "bucket": "2026-06-14T12:00:00Z",
+                "region": "us-east-1",
+                "average_duration": 110,
+                "p95_duration": 190,
+                "p99_duration": 250
+              }
+            ]
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "unpauseWebsiteMonitor",
+    "summary": "Resume a paused website monitor. The monitor will begin checking again.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/website_monitors/{id}/unpause",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/website_monitors/(?<sdkPath1>[^/]+)/unpause$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 3,
+      "parameterSegments": 2,
+      "totalSegments": 5,
+      "staticCharacterCount": 29,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 46,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Website Monitor",
+            "url": "https://example.com",
+            "description": "Production API monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_content": false,
+            "content": "API Status: OK",
+            "alert_content_found": false,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "http_method": "GET",
+            "response_codes": "200",
+            "follow_redirects": true,
+            "timeout": 30,
+            "retry_count": 0,
+            "request_body": "{\"test\": true}",
+            "request_headers": [
+              {
+                "key": "Authorization",
+                "value": "Bearer token"
+              }
+            ],
+            "http_auth_username": "username",
+            "http_auth_password_set": true,
+            "paused_at": null
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "listMonitorRelationships",
+    "summary": "Retrieve the service relationships for a specific monitor.\n\nEach relationship records how the monitor relates to another service:\n`depends_on` (directed), `shares_infrastructure_with`, or `same_provider`\n(both symmetric). Every relationship includes the `service` it points to,\nthe `monitor` it belongs to, and `source` describing how it was\ndiscovered.",
+    "method": "GET",
+    "pathTemplate": "/boards/{board_id}/monitors/{monitor_id}/relationships",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/monitors/(?<sdkPath1>[^/]+)/relationships$",
+    "pathParams": [
+      "board_id",
+      "monitor_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "k2x9m7nPqR",
+        "routeRepresentative": "k2x9m7nPqR"
+      },
+      {
+        "wireName": "monitor_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "uVLl2YK1rn",
+        "routeRepresentative": "uVLl2YK1rn"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "per_page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 25
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 3,
+      "parameterSegments": 2,
+      "totalSegments": 5,
+      "staticCharacterCount": 27,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 34,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "id": "aBcD1234eF",
+              "relationship_type": "depends_on",
+              "service": {
+                "id": "k2x9m7nPqR",
+                "name": "Amazon Web Services",
+                "icon_url": "https://statusgator.com/favicons/aws.png",
+                "official": true
+              },
+              "monitor": {
+                "id": "uVLl2YK1rn",
+                "name": "My Website Monitor",
+                "monitor_type": "WebsiteMonitor",
+                "icon_url": "https://statusgator.com/favicons/example.png"
+              },
+              "source": {
+                "method": "manual"
+              },
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "pauseWebsiteMonitor",
+    "summary": "Pause an active website monitor. When paused, the monitor will not be checked.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/website_monitors/{id}/pause",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/website_monitors/(?<sdkPath1>[^/]+)/pause$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 3,
+      "parameterSegments": 2,
+      "totalSegments": 5,
+      "staticCharacterCount": 27,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 45,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Website Monitor",
+            "url": "https://example.com",
+            "description": "Production API monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_content": false,
+            "content": "API Status: OK",
+            "alert_content_found": false,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "http_method": "GET",
+            "response_codes": "200",
+            "follow_redirects": true,
+            "timeout": 30,
+            "retry_count": 0,
+            "request_body": "{\"test\": true}",
+            "request_headers": [
+              {
+                "key": "Authorization",
+                "value": "Bearer token"
+              }
+            ],
+            "http_auth_username": "username",
+            "http_auth_password_set": true,
+            "paused_at": null
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "getPingMonitorMetrics",
+    "summary": "Response-time metrics for a ping monitor - the same data shown in the\nmonitor metrics tab: a per-region summary (average / min / max / p95 / p99\nin milliseconds) and the time-series data points used by the graph.",
+    "method": "GET",
+    "pathTemplate": "/boards/{board_id}/ping_monitors/{id}/metrics",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/ping_monitors/(?<sdkPath1>[^/]+)/metrics$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "k2x9m7nPqR",
+        "routeRepresentative": "k2x9m7nPqR"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "k2x9m7nPqR",
+        "routeRepresentative": "k2x9m7nPqR"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "period",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "24h"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 3,
+      "parameterSegments": 2,
+      "totalSegments": 5,
+      "staticCharacterCount": 26,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 23,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": true,
+          "data": {
+            "monitor_id": "k2x9m7nPqR",
+            "period": "24h",
+            "summary": [
+              {
+                "region": "eu-west-1",
+                "average_duration": 60,
+                "min_duration": 30,
+                "max_duration": 140,
+                "p95_duration": 110,
+                "p99_duration": 130
+              }
+            ],
+            "data_points": [
+              {
+                "bucket": "2026-06-14T12:00:00Z",
+                "region": "eu-west-1",
+                "average_duration": 58,
+                "p95_duration": 100,
+                "p99_duration": 125
+              }
+            ]
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "unpausePingMonitor",
+    "summary": "Resume a paused ping monitor. The monitor will begin checking again.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/ping_monitors/{id}/unpause",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/ping_monitors/(?<sdkPath1>[^/]+)/unpause$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 3,
+      "parameterSegments": 2,
+      "totalSegments": 5,
+      "staticCharacterCount": 26,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 28,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Ping Monitor",
+            "url": "example.com",
+            "description": "Production server monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "timeout": 30,
+            "retry_count": 0,
+            "paused_at": null
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "listMonitorComponents",
+    "summary": "Retrieve active components for a specific monitor with status information.\n\n**Behavior:**\n- **StatusPageService monitors with no component filters:** Returns all components from the service (monitoring all components)\n- **StatusPageService monitors with component filters:** Returns only the filtered/subscribed components\n- **Non-StatusPageService monitors (WebsiteMonitor, PingMonitor, etc.):** Returns empty array\n\nComponents include current status.",
+    "method": "GET",
+    "pathTemplate": "/boards/{board_id}/monitors/{monitor_id}/components",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/monitors/(?<sdkPath1>[^/]+)/components$",
+    "pathParams": [
+      "board_id",
+      "monitor_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "k2x9m7nPqR",
+        "routeRepresentative": "k2x9m7nPqR"
+      },
+      {
+        "wireName": "monitor_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "k2x9m7nPqR",
+        "routeRepresentative": "k2x9m7nPqR"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "per_page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 25
+      },
+      {
+        "wireName": "status",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "affected"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 3,
+      "parameterSegments": 2,
+      "totalSegments": 5,
+      "staticCharacterCount": 24,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 13,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "API",
+              "group_name": "Core Services",
+              "service_id": "k2x9m7nPqR",
+              "status": "up",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "pausePingMonitor",
+    "summary": "Pause an active ping monitor. When paused, the monitor will not be checked.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/ping_monitors/{id}/pause",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/ping_monitors/(?<sdkPath1>[^/]+)/pause$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 3,
+      "parameterSegments": 2,
+      "totalSegments": 5,
+      "staticCharacterCount": 24,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 27,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Ping Monitor",
+            "url": "example.com",
+            "description": "Production server monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "timeout": 30,
+            "retry_count": 0,
+            "paused_at": null
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "searchServices",
+    "summary": "Search for services by text query. Returns the 25 best matching results.\n      If no query is provided, returns the first 25 services found.",
+    "method": "GET",
+    "pathTemplate": "/services/search",
+    "regexSource": "^/services/search$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [
+      {
+        "wireName": "q",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "github"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 0,
+      "totalSegments": 2,
+      "staticCharacterCount": 14,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 36,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "GitHub",
+              "public_url": "https://www.githubstatus.com/",
+              "home_page_url": "https://github.com",
+              "description": "GitHub is a web-based version control and collaboration platform for software developers.",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z",
+              "icon_url": "https://statusgator.com/favicons/github.png",
+              "landing_page_url": "https://statusgator.com/services/github",
+              "category_names": [
+                "Development Tools",
+                "Version Control"
+              ],
+              "official": true,
+              "rating": {
+                "letter_grade": "A",
+                "description": "Excellent",
+                "average_delay_minutes": 8.3
+              }
+            }
+          ]
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "deleteStatusPageSubscriber",
+    "summary": "Remove a subscriber from the board's status page by providing either id or email in the request body",
+    "method": "DELETE",
+    "pathTemplate": "/boards/{board_id}/status_page_subscribers",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/status_page_subscribers$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 29,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 39,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "id",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "email",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "id": "m2z5x3nOJa",
+          "email": "user@example.com"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "401": true,
+      "404": true,
+      "422": true
+    }
+  },
+  {
+    "operationId": "listStatusPageSubscribers",
+    "summary": "Get all confirmed email subscribers for a board's status page",
+    "method": "GET",
+    "pathTemplate": "/boards/{board_id}/status_page_subscribers",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/status_page_subscribers$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "per_page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 25
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 29,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 37,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "id": "m2z5x3nOJa",
+              "email": "user@example.com",
+              "confirmed": true,
+              "confirmed_at": "2025-09-12T12:35:54Z",
+              "monitor_ids": [
+                "m2z5x3nOJa",
+                "k9p8q7rStU"
+              ],
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "401": true,
+      "404": true
+    }
+  },
+  {
+    "operationId": "createStatusPageSubscriber",
+    "summary": "Creates a status page subscription for the specified board. Provide the subscriber's `email`; use `monitor_ids` to target specific monitors or omit it to subscribe to all monitors. A confirmation email is sent unless `skip_confirmation` is true, and a 201 response returns the created subscriber.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/status_page_subscribers",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/status_page_subscribers$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 29,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 38,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [
+          "subscriber"
+        ],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "subscriber",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "subscriber": {
+            "email": "user@example.com",
+            "skip_confirmation": false,
+            "monitor_ids": [
+              "m2z5x3nOJa",
+              "k9p8q7rStU"
+            ]
+          }
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": null,
+        "decoderKind": "empty",
+        "example": null,
+        "bodyBase64": null,
+        "exampleSource": "none",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      },
+      {
+        "statusCode": "201",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "m2z5x3nOJa",
+            "email": "user@example.com",
+            "confirmed": true,
+            "confirmed_at": "2025-09-12T12:35:54Z",
+            "monitor_ids": [
+              "m2z5x3nOJa",
+              "k9p8q7rStU"
+            ],
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "401": true,
+      "404": true,
+      "422": true
+    }
+  },
+  {
+    "operationId": "createServiceMonitor",
+    "summary": "Create a new service monitor for the specified board. Service monitors\n        allow you to subscribe to status page services and track their status on your board.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/service_monitors",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/service_monitors$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 22,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 31,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [
+          "service_id"
+        ],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "service_id",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "name",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "description",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "metadata",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          },
+          {
+            "wireName": "monitor_group_id",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "service_id": "abc123xyz",
+          "name": "GitHub Status",
+          "description": "Monitor GitHub status page",
+          "metadata": {},
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "201",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "GitHub",
+            "description": "Monitor GitHub status page",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "service_id": "abc123xyz",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "404": true
+    }
+  },
+  {
+    "operationId": "createWebsiteMonitor",
+    "summary": "Create a new website monitor for the specified board. Website monitors\n        allow you to monitor the uptime and performance of websites and APIs. You can\n        configure various monitoring options including check intervals, content monitoring,\n        HTTP methods, and notification preferences.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/website_monitors",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/website_monitors$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 22,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 42,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [
+          "name",
+          "url"
+        ],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "name",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "url",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "description",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "check_interval",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "check_content",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "content",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "alert_content_found",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "check_regions",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "alert_any_location",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "http_method",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "response_codes",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "follow_redirects",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "timeout",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "retry_count",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "request_body",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "request_headers",
+            "repeated": true,
+            "partKind": "json",
+            "contentType": null
+          },
+          {
+            "wireName": "metadata",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          },
+          {
+            "wireName": "http_auth_username",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "http_auth_password",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "monitor_group_id",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "name": "My Website Monitor",
+          "url": "https://example.com",
+          "description": "Production API monitoring",
+          "check_interval": 5,
+          "check_content": false,
+          "content": "API Status: OK",
+          "alert_content_found": false,
+          "check_regions": [
+            "us-east",
+            "us-west"
+          ],
+          "alert_any_location": false,
+          "http_method": "GET",
+          "response_codes": "200",
+          "follow_redirects": true,
+          "timeout": 30,
+          "retry_count": 0,
+          "request_body": "{\"test\": true}",
+          "request_headers": [
+            {
+              "key": "Authorization",
+              "value": "Bearer token"
+            }
+          ],
+          "metadata": {},
+          "http_auth_username": "username",
+          "http_auth_password": "password",
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "201",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Website Monitor",
+            "url": "https://example.com",
+            "description": "Production API monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_content": false,
+            "content": "API Status: OK",
+            "alert_content_found": false,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "http_method": "GET",
+            "response_codes": "200",
+            "follow_redirects": true,
+            "timeout": 30,
+            "retry_count": 0,
+            "request_body": "{\"test\": true}",
+            "request_headers": [
+              {
+                "key": "Authorization",
+                "value": "Bearer token"
+              }
+            ],
+            "http_auth_username": "username",
+            "http_auth_password_set": true,
+            "paused_at": null
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "422": true
+    }
+  },
+  {
+    "operationId": "createCustomMonitor",
+    "summary": "Create a new custom monitor for the specified board. Custom monitors\n        allow you to add manually managed services to your status page. You can update\n        their status manually as needed.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/custom_monitors",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/custom_monitors$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 21,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 7,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [
+          "name"
+        ],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "name",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "description",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "metadata",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          },
+          {
+            "wireName": "monitor_group_id",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "name": "My Custom Service",
+          "description": "Internal service we manually update",
+          "metadata": {},
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "201",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Custom Monitor",
+            "description": "Custom service we manually update",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "422": true
+    }
+  },
+  {
+    "operationId": "listMonitorGroups",
+    "summary": "Get all monitor groups for a board. Monitor groups allow you to organize monitors into logical categories for better organization and display on status pages.",
+    "method": "GET",
+    "pathTemplate": "/boards/{board_id}/monitor_groups",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/monitor_groups$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "per_page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 25
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 20,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 14,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "id": "x5y2m8nQrS",
+              "name": "Production Services",
+              "position": 1,
+              "created_at": "2025-09-19T09:00:00Z",
+              "updated_at": "2025-09-19T10:30:00Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "401": true,
+      "404": true
+    }
+  },
+  {
+    "operationId": "createMonitorGroup",
+    "summary": "Creates a monitor group to organize monitors on a board. Supply a `name` and, optionally, a `position` to control the group's display order, with lower numbers appearing first. The response includes the created group and its identifier.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/monitor_groups",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/monitor_groups$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 20,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 15,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [
+          "monitor_group"
+        ],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "monitor_group",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "monitor_group": {
+            "name": "Production Services",
+            "position": 1
+          }
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "201",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "Production Services",
+            "position": 1,
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "400": true,
+      "401": true,
+      "404": true
+    }
+  },
+  {
+    "operationId": "listOutageReports",
+    "summary": "List the outage reports submitted through the board's status page, newest first. To poll for new reports, pass `since` with the time of your previous request.",
+    "method": "GET",
+    "pathTemplate": "/boards/{board_id}/outage_reports",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/outage_reports$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "since",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "2026-10-01T12:00:00Z"
+      },
+      {
+        "wireName": "page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "per_page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 25
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 20,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 21,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "id": "abc123def",
+              "service": {
+                "id": "k2x9m7nPqR",
+                "name": "Amazon Web Services",
+                "icon_url": "https://statusgator.com/favicons/aws.png",
+                "official": true
+              },
+              "monitor": {
+                "id": "uVLl2YK1rn",
+                "name": "My Website Monitor",
+                "monitor_type": "WebsiteMonitor",
+                "icon_url": "https://statusgator.com/favicons/example.png"
+              },
+              "summary": {
+                "id": "uw2YK1rnl0",
+                "description": "Service down"
+              },
+              "comment": "API returning 500s",
+              "email": "reporter@example.com",
+              "components": [
+                {
+                  "id": "k2x9m7nPqR",
+                  "name": "API",
+                  "group_name": "Core Services"
+                }
+              ],
+              "location": {
+                "city": "Seattle",
+                "region": "Washington",
+                "country": "United States",
+                "country_code": "US"
+              },
+              "confirmed_at": "2023-10-01T12:00:00Z",
+              "created_at": "2023-10-01T12:00:00Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "401": true,
+      "404": true,
+      "422": true
+    }
+  },
+  {
+    "operationId": "createOutageReport",
+    "summary": "Creates an outage report for a monitor on a board. Include `monitor_id` in `outage_report`, and optionally provide affected `component_ids`, a reporter `email`, and a `comment` of up to 300 characters. A 201 response returns the created report and triggers side effects.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/outage_reports",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/outage_reports$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 20,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 22,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [
+          "outage_report"
+        ],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "outage_report",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "outage_report": {
+            "monitor_id": "abc123def",
+            "comment": "API returning 500s",
+            "email": "reporter@example.com",
+            "component_ids": [
+              "comp1",
+              "comp2"
+            ]
+          }
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "201",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "abc123def",
+            "service": {
+              "id": "k2x9m7nPqR",
+              "name": "Amazon Web Services",
+              "icon_url": "https://statusgator.com/favicons/aws.png",
+              "official": true
+            },
+            "monitor": {
+              "id": "uVLl2YK1rn",
+              "name": "My Website Monitor",
+              "monitor_type": "WebsiteMonitor",
+              "icon_url": "https://statusgator.com/favicons/example.png"
+            },
+            "summary": {
+              "id": "uw2YK1rnl0",
+              "description": "Service down"
+            },
+            "comment": "API returning 500s",
+            "email": "reporter@example.com",
+            "components": [
+              {
+                "id": "k2x9m7nPqR",
+                "name": "API",
+                "group_name": "Core Services"
+              }
+            ],
+            "location": {
+              "city": "Seattle",
+              "region": "Washington",
+              "country": "United States",
+              "country_code": "US"
+            },
+            "confirmed_at": "2023-10-01T12:00:00Z",
+            "created_at": "2023-10-01T12:00:00Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "401": true,
+      "403": true,
+      "404": true,
+      "422": true
+    }
+  },
+  {
+    "operationId": "createPingMonitor",
+    "summary": "Create a new ping monitor for the specified board. Ping monitors\n        allow you to monitor the uptime and connectivity of hosts by sending ICMP ping\n        requests. You can configure various monitoring options including check intervals,\n        timeout settings, and notification preferences.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/ping_monitors",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/ping_monitors$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 19,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 24,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [
+          "name",
+          "url"
+        ],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "name",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "url",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "description",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "check_interval",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "check_regions",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "alert_any_location",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "timeout",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "retry_count",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "metadata",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          },
+          {
+            "wireName": "monitor_group_id",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "name": "My Ping Monitor",
+          "url": "example.com",
+          "description": "Production server monitoring",
+          "check_interval": 5,
+          "check_regions": [
+            "us-east",
+            "us-west"
+          ],
+          "alert_any_location": false,
+          "timeout": 30,
+          "retry_count": 0,
+          "metadata": {},
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "201",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Ping Monitor",
+            "url": "example.com",
+            "description": "Production server monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "timeout": 30,
+            "retry_count": 0,
+            "paused_at": null
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "422": true
+    }
+  },
+  {
+    "operationId": "listServiceComponents",
+    "summary": "Retrieve all active components for a specific service. Components represent individual parts or subsystems of a service that are monitored separately (like API, Dashboard, Database, etc.).",
+    "method": "GET",
+    "pathTemplate": "/services/{service_id}/components",
+    "regexSource": "^/services/(?<sdkPath0>[^/]+)/components$",
+    "pathParams": [
+      "service_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "service_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "k2x9m7nPqR",
+        "routeRepresentative": "k2x9m7nPqR"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "per_page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 25
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 18,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 6,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "API",
+              "group_name": "Core Services",
+              "service_id": "k2x9m7nPqR",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "listIncidents",
+    "summary": "Lists incidents for a specific board, including their current phases and severity levels. Filter by `phase` or `severity`, and use `page` and `per_page` to paginate the results.",
+    "method": "GET",
+    "pathTemplate": "/boards/{board_id}/incidents",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/incidents$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "per_page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 25
+      },
+      {
+        "wireName": "phase",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "phase"
+      },
+      {
+        "wireName": "severity",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "severity"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 15,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 11,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "id": "abc123def",
+              "name": "Database outage",
+              "details": "We are currently experiencing a database outage affecting all services.",
+              "started_at": "2023-10-01T12:00:00Z",
+              "resolved_at": "2023-10-01T14:30:00Z",
+              "phase": "investigating",
+              "severity": "major",
+              "will_start_at": "2023-10-02T02:00:00Z",
+              "will_end_at": "2023-10-02T04:00:00Z",
+              "auto_complete_maintenance": false,
+              "board_id": "lh16iGAYKI",
+              "duration": 150.5,
+              "maintenance_duration": 120,
+              "scheduled_maintenance": false,
+              "resolved_or_completed": false,
+              "created_at": "2023-10-01T11:45:00Z",
+              "updated_at": "2023-10-01T12:15:00Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "401": true,
+      "404": true
+    }
+  },
+  {
+    "operationId": "createIncident",
+    "summary": "Creates an incident or maintenance window on a board to inform users about a service disruption or planned maintenance. Supply `started_at` and `ended_at` for an operational incident, or `will_start_at` and `will_end_at` for future maintenance. The response includes the created incident and its identifier.",
+    "method": "POST",
+    "pathTemplate": "/boards/{board_id}/incidents",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/incidents$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 15,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 12,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [
+          "incident"
+        ],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "incident",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "incident": {
+            "name": "Database outage",
+            "details": "We are currently experiencing a database outage affecting all services. Our team is actively working to resolve the issue. We will provide updates as soon as possible.",
+            "started_at": "2023-10-01T12:00:00Z",
+            "ended_at": "2023-10-01T14:00:00Z",
+            "will_start_at": "2023-10-05T01:00:00Z",
+            "will_end_at": "2023-10-05T03:00:00Z",
+            "phase": "investigating",
+            "severity": "major",
+            "notify_subscribers": true,
+            "monitors": [
+              {
+                "id": "sadfkfefw",
+                "status": "down"
+              },
+              {
+                "id": "dfeweqes",
+                "status": "down"
+              }
+            ]
+          }
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "201",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "abc123def",
+            "name": "Database outage",
+            "details": "We are currently experiencing a database outage affecting all services.",
+            "started_at": "2023-10-01T12:00:00Z",
+            "resolved_at": "2023-10-01T14:30:00Z",
+            "phase": "investigating",
+            "severity": "major",
+            "will_start_at": "2023-10-02T02:00:00Z",
+            "will_end_at": "2023-10-02T04:00:00Z",
+            "auto_complete_maintenance": false,
+            "board_id": "lh16iGAYKI",
+            "duration": 150.5,
+            "maintenance_duration": 120,
+            "scheduled_maintenance": false,
+            "resolved_or_completed": false,
+            "created_at": "2023-10-01T11:45:00Z",
+            "updated_at": "2023-10-01T12:15:00Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "422": true
+    }
+  },
+  {
+    "operationId": "getBoardMonitors",
+    "summary": "Lists monitors for a specific board, including their group information. Use `status` to filter results; `affected` returns all non-up monitors, and comma-separated values such as `down,warn` select specific statuses.",
+    "method": "GET",
+    "pathTemplate": "/boards/{board_id}/monitors",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/monitors$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "status",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "affected"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 14,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 20,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "id": "uVLl2YK1rn",
+              "checked_at": "2025-09-05T23:05:23.463Z",
+              "created_at": "2023-07-06T14:18:35.607Z",
+              "updated_at": "2023-07-06T14:18:35.607Z",
+              "filtered_status": "warn",
+              "description": null,
+              "metadata": {
+                "key": "key"
+              },
+              "unfiltered_status": "warn",
+              "last_message": "CGK (Jakarta) on 2025-09-05",
+              "last_details": "In progress - Scheduled maintenance is currently in progress. We will provide updates as necessary. Sep 05, 2025 - 22:00 UTC",
+              "overridden_message": null,
+              "overridden_status": null,
+              "overrides_locked_at": null,
+              "paused_at": null,
+              "filter_count": 0,
+              "icon_url": "https://favicons-dev.statusgator.com/FiM8Ile0FV3wLjxF.jpg",
+              "position": 3,
+              "monitor_type": "ServiceMonitor",
+              "early_warning_signal": false,
+              "display_name": "Cloudflare",
+              "service": {
+                "id": "PQNMcnNFWw",
+                "name": "Cloudflare",
+                "slug": "cloudflare",
+                "home_page_url": "http://www.cloudflare.com",
+                "status_page_url": "https://www.cloudflarestatus.com",
+                "icon_url": "https://favicons-dev.statusgator.com/FiM8Ile0FV3wLjxF.jpg",
+                "landing_page_url": "https://studio.colinabartlett.com:3004/services/cloudflare",
+                "official": true,
+                "rating": {
+                  "letter_grade": "A",
+                  "description": "Excellent",
+                  "average_delay_minutes": 8.3
+                }
+              },
+              "group": {
+                "id": "k2x9m7nPqR",
+                "name": "Infrastructure",
+                "position": 1
+              }
+            }
+          ]
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "getBoardHistory",
+    "summary": "Returns a list of historical events affecting monitors on a board over a date range.",
+    "method": "GET",
+    "pathTemplate": "/boards/{board_id}/history",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/history$",
+    "pathParams": [
+      "board_id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      }
+    ],
+    "queryParameters": [
+      {
+        "wireName": "start_date",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "2025-09-01"
+      },
+      {
+        "wireName": "end_date",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "2025-10-01"
+      },
+      {
+        "wireName": "monitor_id",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "A6das1igzR"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 1,
+      "totalSegments": 3,
+      "staticCharacterCount": 13,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 0,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "monitor_id": "L1hZpHOn63",
+              "name": "Zoom",
+              "icon_url": "zoom.png",
+              "status": "down",
+              "started_at": "2025-09-12T12:00:00Z",
+              "ended_at": "2025-09-12T13:00:00Z",
+              "duration": 60,
+              "message": "Outage in progress",
+              "details": "We are investigating",
+              "early_warning_signal": false
+            }
+          ]
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "deleteServiceMonitor",
+    "summary": "Deletes a service monitor from a board. Use `board_id` and `id` to identify the board and the service monitor to remove; the response confirms whether deletion succeeded.",
+    "method": "DELETE",
+    "pathTemplate": "/boards/{board_id}/service_monitors/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/service_monitors/(?<sdkPath1>[^/]+)$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 22,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 33,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "updateServiceMonitor",
+    "summary": "Update a service monitor. You can update the name, description, and monitor group assignment.",
+    "method": "PATCH",
+    "pathTemplate": "/boards/{board_id}/service_monitors/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/service_monitors/(?<sdkPath1>[^/]+)$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 22,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 32,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "name",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "description",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "metadata",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          },
+          {
+            "wireName": "monitor_group_id",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "name": "GitHub Status",
+          "description": "Updated description",
+          "metadata": {},
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "GitHub",
+            "description": "Monitor GitHub status page",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "service_id": "abc123xyz",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "404": true
+    }
+  },
+  {
+    "operationId": "deleteWebsiteMonitor",
+    "summary": "Deletes a website monitor from a board. Use the `board_id` and `id` path parameters to identify the board and monitor to remove. A successful response includes a boolean `success` value.",
+    "method": "DELETE",
+    "pathTemplate": "/boards/{board_id}/website_monitors/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/website_monitors/(?<sdkPath1>[^/]+)$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 22,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 44,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "updateWebsiteMonitor",
+    "summary": "Update an existing website monitor. You can modify any of the\n        monitoring configuration options including check intervals, content monitoring,\n        HTTP methods, and notification preferences.",
+    "method": "PATCH",
+    "pathTemplate": "/boards/{board_id}/website_monitors/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/website_monitors/(?<sdkPath1>[^/]+)$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 22,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 43,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "name",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "url",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "description",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "check_interval",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "check_content",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "content",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "alert_content_found",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "check_regions",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "alert_any_location",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "http_method",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "response_codes",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "follow_redirects",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "timeout",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "retry_count",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "request_body",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "request_headers",
+            "repeated": true,
+            "partKind": "json",
+            "contentType": null
+          },
+          {
+            "wireName": "metadata",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          },
+          {
+            "wireName": "http_auth_username",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "http_auth_password",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "monitor_group_id",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "name": "Updated Website Monitor",
+          "url": "https://updated-example.com",
+          "description": "Updated production API monitoring",
+          "check_interval": 3,
+          "check_content": true,
+          "content": "Service Healthy",
+          "alert_content_found": true,
+          "check_regions": [
+            "us-east",
+            "eu-west"
+          ],
+          "alert_any_location": true,
+          "http_method": "POST",
+          "response_codes": "201",
+          "follow_redirects": false,
+          "timeout": 60,
+          "retry_count": 2,
+          "request_body": "{\"updated\": true}",
+          "request_headers": [
+            {
+              "key": "X-API-Key",
+              "value": "secret123"
+            }
+          ],
+          "metadata": {},
+          "http_auth_username": "newusername",
+          "http_auth_password": "newpassword",
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Website Monitor",
+            "url": "https://example.com",
+            "description": "Production API monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_content": false,
+            "content": "API Status: OK",
+            "alert_content_found": false,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "http_method": "GET",
+            "response_codes": "200",
+            "follow_redirects": true,
+            "timeout": 30,
+            "retry_count": 0,
+            "request_body": "{\"test\": true}",
+            "request_headers": [
+              {
+                "key": "Authorization",
+                "value": "Bearer token"
+              }
+            ],
+            "http_auth_username": "username",
+            "http_auth_password_set": true,
+            "paused_at": null
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "422": true
+    }
+  },
+  {
+    "operationId": "deleteCustomMonitor",
+    "summary": "Deletes a custom monitor from a board. Use `board_id` and `id` to identify the board and the custom monitor to remove. A successful response confirms the deletion.",
+    "method": "DELETE",
+    "pathTemplate": "/boards/{board_id}/custom_monitors/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/custom_monitors/(?<sdkPath1>[^/]+)$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 21,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 9,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "updateCustomMonitor",
+    "summary": "Updates an existing custom monitor on a board. Supply any combination of `name`, `description`, `metadata`, and `monitor_group_id` to change those properties. Set `monitor_group_id` to null to remove the monitor from its group.",
+    "method": "PATCH",
+    "pathTemplate": "/boards/{board_id}/custom_monitors/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/custom_monitors/(?<sdkPath1>[^/]+)$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 21,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 8,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "name",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "description",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "metadata",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          },
+          {
+            "wireName": "monitor_group_id",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "name": "Updated Custom Service",
+          "description": "Updated description",
+          "metadata": {},
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Custom Monitor",
+            "description": "Custom service we manually update",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "deleteMonitorGroup",
+    "summary": "Delete a monitor group. Any monitors assigned to this group will become ungrouped.",
+    "method": "DELETE",
+    "pathTemplate": "/boards/{board_id}/monitor_groups/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/monitor_groups/(?<sdkPath1>[^/]+)$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 20,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 18,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "401": true,
+      "404": true
+    }
+  },
+  {
+    "operationId": "getMonitorGroup",
+    "summary": "Retrieves the details of a specific monitor group on a board. Use the board and monitor group identifiers to select the group.",
+    "method": "GET",
+    "pathTemplate": "/boards/{board_id}/monitor_groups/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/monitor_groups/(?<sdkPath1>[^/]+)$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 20,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 16,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "Production Services",
+            "position": 1,
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "401": true,
+      "404": true
+    }
+  },
+  {
+    "operationId": "updateMonitorGroup",
+    "summary": "Updates an existing monitor group's name or display position on a board. Supply the fields you want to change in `monitor_group`; lower `position` values place the group earlier in the display order.",
+    "method": "PATCH",
+    "pathTemplate": "/boards/{board_id}/monitor_groups/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/monitor_groups/(?<sdkPath1>[^/]+)$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "lh16iGAYKI",
+        "routeRepresentative": "lh16iGAYKI"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 20,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 17,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [
+          "monitor_group"
+        ],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "monitor_group",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "monitor_group": {
+            "name": "Production Services",
+            "position": 1
+          }
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "Production Services",
+            "position": 1,
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "401": true,
+      "404": true
+    }
+  },
+  {
+    "operationId": "deletePingMonitor",
+    "summary": "Deletes a ping monitor from a board. Use `board_id` and `id` to identify the board and the ping monitor to remove.",
+    "method": "DELETE",
+    "pathTemplate": "/boards/{board_id}/ping_monitors/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/ping_monitors/(?<sdkPath1>[^/]+)$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 19,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 26,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "updatePingMonitor",
+    "summary": "Update an existing ping monitor. You can modify any of the\n        monitoring configuration options including check intervals, timeout settings,\n        and notification preferences.",
+    "method": "PATCH",
+    "pathTemplate": "/boards/{board_id}/ping_monitors/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)/ping_monitors/(?<sdkPath1>[^/]+)$",
+    "pathParams": [
+      "board_id",
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "board_id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      },
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "x5y2m8nQrS",
+        "routeRepresentative": "x5y2m8nQrS"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 2,
+      "parameterSegments": 2,
+      "totalSegments": 4,
+      "staticCharacterCount": 19,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 25,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "name",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "url",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "description",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "check_interval",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "check_regions",
+            "repeated": true,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "alert_any_location",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "timeout",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "retry_count",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          },
+          {
+            "wireName": "metadata",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          },
+          {
+            "wireName": "monitor_group_id",
+            "repeated": false,
+            "partKind": "scalar",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "name": "Updated Ping Monitor",
+          "url": "updated-example.com",
+          "description": "Updated production server monitoring",
+          "check_interval": 3,
+          "check_regions": [
+            "us-east",
+            "eu-west"
+          ],
+          "alert_any_location": true,
+          "timeout": 60,
+          "retry_count": 2,
+          "metadata": {},
+          "monitor_group_id": "x5y2m8nQrS"
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "x5y2m8nQrS",
+            "name": "My Ping Monitor",
+            "url": "example.com",
+            "description": "Production server monitoring",
+            "metadata": {
+              "key": "key"
+            },
+            "monitor_group_id": "x5y2m8nQrS",
+            "status": "up",
+            "last_checked_at": "2025-09-19T10:30:00Z",
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z",
+            "check_interval": 5,
+            "check_regions": [
+              "us-east",
+              "us-west"
+            ],
+            "alert_any_location": false,
+            "timeout": 30,
+            "retry_count": 0,
+            "paused_at": null
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "success": false,
+            "errors": [
+              "errors"
+            ]
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {
+      "422": true
+    }
+  },
+  {
+    "operationId": "listMonitoringRegions",
+    "summary": "Retrieve all available monitoring regions that StatusGator\n      uses to check website or ping monitors. Monitoring regions are geographic\n      locations with fixed IP addresses from which StatusGator monitors your\n      services. Use this API to retrieve the IP addresses, allowing you to\n      whitelist them in your firewall.",
+    "method": "GET",
+    "pathTemplate": "/monitoring_regions",
+    "regexSource": "^/monitoring_regions$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 18,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 19,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "region_id": "us-east",
+              "dns_name": "monitor-us-east.statusgator.com",
+              "ip_address": "52.1.2.3",
+              "provider": "AWS",
+              "code": "us-east-1",
+              "name": "US East",
+              "desc": "US East (N. Virginia)",
+              "icon_url": "https://statusgator.com/assets/external_logos/aws.png",
+              "color": "#1a5db2"
+            }
+          ]
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "listServices",
+    "summary": "Access to this API endpoint is restricted to customers with\n      Firehose. integration access. Retrieve all available services that\n      StatusGator monitors. Services represent external platforms and tools\n      (like GitHub, AWS, Slack, etc.) that StatusGator tracks for status\n      updates. StatusGator checks these services every 5 minutes and provides\n      real-time status information.",
+    "method": "GET",
+    "pathTemplate": "/services",
+    "regexSource": "^/services$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [
+      {
+        "wireName": "page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "per_page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 25
+      },
+      {
+        "wireName": "created_after",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "2025-09-01T00:00:00Z"
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 8,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 35,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "GitHub",
+              "public_url": "https://www.githubstatus.com/",
+              "home_page_url": "https://github.com",
+              "description": "GitHub is a web-based version control and collaboration platform for software developers.",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z",
+              "icon_url": "https://statusgator.com/favicons/github.png",
+              "landing_page_url": "https://statusgator.com/services/github",
+              "category_names": [
+                "Development Tools",
+                "Version Control"
+              ],
+              "official": true,
+              "rating": {
+                "letter_grade": "A",
+                "description": "Excellent",
+                "average_delay_minutes": 8.3
+              }
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "400": [
+        {
+          "statusCode": "400",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "listBoards",
+    "summary": "Retrieve all boards belonging to your organization. Boards\n        are like projects that display the status of selected services you depend\n        on. Each board allows you to organize and monitor specific groups of\n        services relevant to your operations. Results are paginated for efficient\n        data retrieval.",
+    "method": "GET",
+    "pathTemplate": "/boards",
+    "regexSource": "^/boards$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [
+      {
+        "wireName": "page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 1
+      },
+      {
+        "wireName": "per_page",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": 25
+      }
+    ],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 6,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 1,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "id": "m2z5x3nOJa",
+              "name": "Cloud Services",
+              "public_token": "abc123def456",
+              "created_at": "2025-09-12T12:35:54Z",
+              "updated_at": "2025-09-12T12:40:54Z"
+            }
+          ],
+          "pagination": {
+            "current_page": 30,
+            "per_page": 30,
+            "total_pages": 30,
+            "total_count": 100,
+            "next_page": 30,
+            "prev_page": 30
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "createBoard",
+    "summary": "Creates a new board in your organization. Pass `user_ids` to assign organization users; without them, the board has no user assignments and does not appear in any user's web sidebar, though it remains accessible through the API. A 201 response returns the created board and its public token.",
+    "method": "POST",
+    "pathTemplate": "/boards",
+    "regexSource": "^/boards$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 6,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 2,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "board",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "board": {
+            "name": "Cloud Services",
+            "user_ids": [
+              "k2x9m7nPqR"
+            ]
+          }
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "201",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "m2z5x3nOJa",
+            "name": "Cloud Services",
+            "public_token": "abc123def456",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "listUsers",
+    "summary": "Retrieve all users belonging to your organization. Users are\n      members of your organization who can access StatusGator dashboards,\n      configure monitoring settings, and receive notifications. Users can have\n      either the role of org_admin or editor.",
+    "method": "GET",
+    "pathTemplate": "/users",
+    "regexSource": "^/users$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 5,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 40,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": [
+            {
+              "id": "k2x9m7nPqR",
+              "email": "user@example.com",
+              "first_name": "John",
+              "last_name": "Doe",
+              "company": "Example Corp",
+              "job_title": "DevOps Engineer",
+              "role": "editor",
+              "created_at": "2025-01-15T10:30:00Z",
+              "last_sign_in_at": "2025-01-15T10:30:00Z",
+              "confirmed": true,
+              "two_factor_enabled": false
+            }
+          ]
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "ping",
+    "summary": "Authentication check and whoami. Returns a success message plus the organization\nand token the supplied bearer token belongs to, so an integration can confirm\na token is valid and show which account it is connected to.",
+    "method": "GET",
+    "pathTemplate": "/ping",
+    "regexSource": "^/ping$",
+    "pathParams": [],
+    "pathParameters": [],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 0,
+      "totalSegments": 1,
+      "staticCharacterCount": 4,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 29,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "message": "pong",
+            "organization": {
+              "id": "k2x9m7nPqR",
+              "name": "Acme Inc",
+              "timezone": "America/New_York"
+            },
+            "token": {
+              "id": "p8Wq3rTv5Z",
+              "name": "Integration token",
+              "scope": "organization",
+              "permission": "full",
+              "source": "dashboard",
+              "created_at": "2025-01-15T10:30:00Z",
+              "expires_at": "2026-01-15T10:30:00Z",
+              "user": {
+                "id": "k2x9m7nPqR",
+                "email": "user@example.com"
+              }
+            }
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "429": [
+        {
+          "statusCode": "429",
+          "mediaType": "application/json",
+          "decoderKind": "json",
+          "example": {
+            "error": "error"
+          },
+          "bodyBase64": null,
+          "exampleSource": "synthesized",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "deleteBoard",
+    "summary": "Delete a board. The board is soft-deleted (discarded). You\n        cannot delete your only remaining board.",
+    "method": "DELETE",
+    "pathTemplate": "/boards/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)$",
+    "pathParams": [
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 1,
+      "totalSegments": 2,
+      "staticCharacterCount": 6,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 5,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "422": [
+        {
+          "statusCode": "422",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "getBoard",
+    "summary": "Retrieves details for a specific board. Use the board's public ID in `id` to identify which board to retrieve.",
+    "method": "GET",
+    "pathTemplate": "/boards/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)$",
+    "pathParams": [
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 1,
+      "totalSegments": 2,
+      "staticCharacterCount": 6,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 3,
+    "requestModes": [],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "m2z5x3nOJa",
+            "name": "Cloud Services",
+            "public_token": "abc123def456",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  },
+  {
+    "operationId": "updateBoard",
+    "summary": "Updates a board's name, its assigned organization users, or both. Supply the board fields you want to change in `board`; passing an empty `user_ids` array removes all user assignments.",
+    "method": "PATCH",
+    "pathTemplate": "/boards/{id}",
+    "regexSource": "^/boards/(?<sdkPath0>[^/]+)$",
+    "pathParams": [
+      "id"
+    ],
+    "pathParameters": [
+      {
+        "wireName": "id",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "allowReserved": false,
+        "isArray": false,
+        "jsonContent": false,
+        "shape": "scalar",
+        "members": [],
+        "example": "m2z5x3nOJa",
+        "routeRepresentative": "m2z5x3nOJa"
+      }
+    ],
+    "queryParameters": [],
+    "literalQuery": [],
+    "headerParameters": [],
+    "cookieParameters": [],
+    "specificity": {
+      "staticSegments": 1,
+      "parameterSegments": 1,
+      "totalSegments": 2,
+      "staticCharacterCount": 6,
+      "constrainedParameters": 0,
+      "literalQueryParameters": 0
+    },
+    "originalIndex": 4,
+    "requestModes": [
+      {
+        "mediaType": "application/json",
+        "encoderKind": "json",
+        "required": false,
+        "bodyShape": "fields",
+        "requiredFields": [],
+        "readOnlyFields": [],
+        "fields": [
+          {
+            "wireName": "board",
+            "repeated": false,
+            "partKind": "json",
+            "contentType": null
+          }
+        ],
+        "example": {
+          "board": {
+            "name": "Renamed Board",
+            "user_ids": [
+              "k2x9m7nPqR"
+            ]
+          }
+        },
+        "expectsArray": false
+      }
+    ],
+    "responseModes": [
+      {
+        "statusCode": "200",
+        "mediaType": "application/json",
+        "decoderKind": "json",
+        "example": {
+          "success": false,
+          "data": {
+            "id": "m2z5x3nOJa",
+            "name": "Cloud Services",
+            "public_token": "abc123def456",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        },
+        "bodyBase64": null,
+        "exampleSource": "synthesized",
+        "authoredExampleSource": "none",
+        "hasAuthoredExample": false
+      }
+    ],
+    "defaultResponseIndex": 0,
+    "streamSelector": null,
+    "redirectStatus": null,
+    "errorResponses": {
+      "401": [
+        {
+          "statusCode": "401",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "403": [
+        {
+          "statusCode": "403",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ],
+      "404": [
+        {
+          "statusCode": "404",
+          "mediaType": null,
+          "decoderKind": "empty",
+          "example": null,
+          "bodyBase64": null,
+          "exampleSource": "none",
+          "authoredExampleSource": "none",
+          "hasAuthoredExample": false
+        }
+      ]
+    },
+    "errorModels": {}
+  }
+]

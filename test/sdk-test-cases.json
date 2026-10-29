@@ -1,0 +1,2725 @@
+[
+  {
+    "id": "behavior-1",
+    "operationId": "getBoardHistory",
+    "method": "GET",
+    "path": "/boards/{board_id}/history",
+    "signature": "{\"errors\":[\"empty\",\"empty\",\"empty\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "start_date",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "2024-01-01T00:00:00Z"
+      },
+      {
+        "name": "end_date",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "2024-01-01T00:00:00Z"
+      },
+      {
+        "name": "monitor_id",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "monitor-1"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": [
+          {
+            "monitor_id": "L1hZpHOn63",
+            "name": "Zoom",
+            "icon_url": "zoom.png",
+            "status": "down",
+            "started_at": "2025-09-12T12:00:00Z",
+            "ended_at": "2025-09-12T13:00:00Z",
+            "duration": 60,
+            "message": "Outage in progress",
+            "details": "We are investigating",
+            "early_warning_signal": false
+          }
+        ]
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-2",
+    "operationId": "listBoards",
+    "method": "GET",
+    "path": "/boards",
+    "signature": "{\"errors\":[\"empty\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      },
+      {
+        "name": "per_page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": [
+          {
+            "id": "m2z5x3nOJa",
+            "name": "Cloud Services",
+            "public_token": "abc123def456",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        ],
+        "pagination": {
+          "current_page": 30,
+          "per_page": 30,
+          "total_pages": 30,
+          "total_count": 100,
+          "next_page": 30,
+          "prev_page": 30
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-3",
+    "operationId": "createBoard",
+    "method": "POST",
+    "path": "/boards",
+    "signature": "{\"errors\":[\"empty\",\"empty\",\"empty\"],\"method\":\"POST\",\"nullable\":false,\"pagination\":null,\"parameters\":[],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response"
+    ],
+    "parameters": [],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "board": {
+          "name": "Cloud Services",
+          "user_ids": [
+            "k2x9m7nPqR"
+          ]
+        }
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "m2z5x3nOJa",
+          "name": "Cloud Services",
+          "public_token": "abc123def456",
+          "created_at": "2025-09-12T12:35:54Z",
+          "updated_at": "2025-09-12T12:40:54Z"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-4",
+    "operationId": "getBoard",
+    "method": "GET",
+    "path": "/boards/{id}",
+    "signature": "{\"errors\":[\"empty\",\"empty\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "id-1"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "m2z5x3nOJa",
+          "name": "Cloud Services",
+          "public_token": "abc123def456",
+          "created_at": "2025-09-12T12:35:54Z",
+          "updated_at": "2025-09-12T12:40:54Z"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-5",
+    "operationId": "updateBoard",
+    "method": "PATCH",
+    "path": "/boards/{id}",
+    "signature": "{\"errors\":[\"empty\",\"empty\",\"empty\"],\"method\":\"PATCH\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "id-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "board": {
+          "name": "Renamed Board",
+          "user_ids": [
+            "k2x9m7nPqR"
+          ]
+        }
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "m2z5x3nOJa",
+          "name": "Cloud Services",
+          "public_token": "abc123def456",
+          "created_at": "2025-09-12T12:35:54Z",
+          "updated_at": "2025-09-12T12:40:54Z"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-6",
+    "operationId": "deleteBoard",
+    "method": "DELETE",
+    "path": "/boards/{id}",
+    "signature": "{\"errors\":[\"empty\",\"empty\",\"empty\",\"empty\"],\"method\":\"DELETE\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "id-1"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-7",
+    "operationId": "listServiceComponents",
+    "method": "GET",
+    "path": "/services/{service_id}/components",
+    "signature": "{\"errors\":[\"empty\",\"empty\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "service_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "service-1"
+      },
+      {
+        "name": "page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      },
+      {
+        "name": "per_page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": [
+          {
+            "id": "k2x9m7nPqR",
+            "name": "API",
+            "group_name": "Core Services",
+            "service_id": "k2x9m7nPqR",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        ],
+        "pagination": {
+          "current_page": 30,
+          "per_page": 30,
+          "total_pages": 30,
+          "total_count": 100,
+          "next_page": 30,
+          "prev_page": 30
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-8",
+    "operationId": "createCustomMonitor",
+    "method": "POST",
+    "path": "/boards/{board_id}/custom_monitors",
+    "signature": "{\"errors\":[\"empty\",\"json\"],\"method\":\"POST\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "name": "My Custom Service",
+        "description": "Internal service we manually update",
+        "metadata": {},
+        "monitor_group_id": "x5y2m8nQrS"
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "x5y2m8nQrS",
+          "name": "My Custom Monitor",
+          "description": "Custom service we manually update",
+          "metadata": {
+            "key": "key"
+          },
+          "monitor_group_id": "x5y2m8nQrS",
+          "status": "up",
+          "created_at": "2025-09-19T09:00:00Z",
+          "updated_at": "2025-09-19T10:30:00Z"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-9",
+    "operationId": "updateCustomMonitor",
+    "method": "PATCH",
+    "path": "/boards/{board_id}/custom_monitors/{id}",
+    "signature": "{\"errors\":[\"empty\",\"empty\"],\"method\":\"PATCH\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "id-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "name": "Updated Custom Service",
+        "description": "Updated description",
+        "metadata": {},
+        "monitor_group_id": "x5y2m8nQrS"
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "x5y2m8nQrS",
+          "name": "My Custom Monitor",
+          "description": "Custom service we manually update",
+          "metadata": {
+            "key": "key"
+          },
+          "monitor_group_id": "x5y2m8nQrS",
+          "status": "up",
+          "created_at": "2025-09-19T09:00:00Z",
+          "updated_at": "2025-09-19T10:30:00Z"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-10",
+    "operationId": "deleteCustomMonitor",
+    "method": "DELETE",
+    "path": "/boards/{board_id}/custom_monitors/{id}",
+    "signature": "{\"errors\":[\"empty\",\"empty\"],\"method\":\"DELETE\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "id-1"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-11",
+    "operationId": "createIncidentUpdate",
+    "method": "POST",
+    "path": "/boards/{board_id}/incidents/{incident_id}/incident_updates",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\"],\"method\":\"POST\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "incident_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "incident-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "details": "We have identified the root cause and are working on a fix.",
+        "phase": "investigating",
+        "severity": "major",
+        "posted_at": "2023-10-01T12:30:00Z",
+        "notify_subscribers": true,
+        "monitors": [
+          {
+            "id": "sadfkfefw",
+            "status": "down"
+          },
+          {
+            "id": "dfeweqes",
+            "status": "warn"
+          }
+        ]
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": 123,
+          "incident_id": "abc123def",
+          "details": "We have identified the root cause and are working on a fix.",
+          "phase": "identified",
+          "severity": "major",
+          "posted_at": "2023-10-01T12:30:00Z",
+          "notify_subscribers": true,
+          "created_at": "2023-10-01T12:30:00Z",
+          "updated_at": "2023-10-01T12:30:00Z"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-12",
+    "operationId": "listIncidents",
+    "method": "GET",
+    "path": "/boards/{board_id}/incidents",
+    "signature": "{\"errors\":[\"json\",\"json\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      },
+      {
+        "name": "per_page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      },
+      {
+        "name": "phase",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "phase"
+      },
+      {
+        "name": "severity",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "severity"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": [
+          {
+            "id": "abc123def",
+            "name": "Database outage",
+            "details": "We are currently experiencing a database outage affecting all services.",
+            "started_at": "2023-10-01T12:00:00Z",
+            "resolved_at": "2023-10-01T14:30:00Z",
+            "phase": "investigating",
+            "severity": "major",
+            "will_start_at": "2023-10-02T02:00:00Z",
+            "will_end_at": "2023-10-02T04:00:00Z",
+            "auto_complete_maintenance": false,
+            "board_id": "lh16iGAYKI",
+            "duration": 150.5,
+            "maintenance_duration": 120,
+            "scheduled_maintenance": false,
+            "resolved_or_completed": false,
+            "created_at": "2023-10-01T11:45:00Z",
+            "updated_at": "2023-10-01T12:15:00Z"
+          }
+        ],
+        "pagination": {
+          "current_page": 30,
+          "per_page": 30,
+          "total_pages": 30,
+          "total_count": 100,
+          "next_page": 30,
+          "prev_page": 30
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-13",
+    "operationId": "createIncident",
+    "method": "POST",
+    "path": "/boards/{board_id}/incidents",
+    "signature": "{\"errors\":[\"json\"],\"method\":\"POST\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "incident": {
+          "name": "Database outage",
+          "details": "We are currently experiencing a database outage affecting all services. Our team is actively working to resolve the issue. We will provide updates as soon as possible.",
+          "started_at": "2023-10-01T12:00:00Z",
+          "ended_at": "2023-10-01T14:00:00Z",
+          "will_start_at": "2023-10-05T01:00:00Z",
+          "will_end_at": "2023-10-05T03:00:00Z",
+          "phase": "investigating",
+          "severity": "major",
+          "notify_subscribers": true,
+          "monitors": [
+            {
+              "id": "sadfkfefw",
+              "status": "down"
+            },
+            {
+              "id": "dfeweqes",
+              "status": "down"
+            }
+          ]
+        }
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "abc123def",
+          "name": "Database outage",
+          "details": "We are currently experiencing a database outage affecting all services.",
+          "started_at": "2023-10-01T12:00:00Z",
+          "resolved_at": "2023-10-01T14:30:00Z",
+          "phase": "investigating",
+          "severity": "major",
+          "will_start_at": "2023-10-02T02:00:00Z",
+          "will_end_at": "2023-10-02T04:00:00Z",
+          "auto_complete_maintenance": false,
+          "board_id": "lh16iGAYKI",
+          "duration": 150.5,
+          "maintenance_duration": 120,
+          "scheduled_maintenance": false,
+          "resolved_or_completed": false,
+          "created_at": "2023-10-01T11:45:00Z",
+          "updated_at": "2023-10-01T12:15:00Z"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-14",
+    "operationId": "listMonitorComponents",
+    "method": "GET",
+    "path": "/boards/{board_id}/monitors/{monitor_id}/components",
+    "signature": "{\"errors\":[\"empty\",\"empty\",\"empty\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "monitor_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "monitor-1"
+      },
+      {
+        "name": "page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      },
+      {
+        "name": "per_page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      },
+      {
+        "name": "status",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "active"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": [
+          {
+            "id": "k2x9m7nPqR",
+            "name": "API",
+            "group_name": "Core Services",
+            "service_id": "k2x9m7nPqR",
+            "status": "up",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        ],
+        "pagination": {
+          "current_page": 30,
+          "per_page": 30,
+          "total_pages": 30,
+          "total_count": 100,
+          "next_page": 30,
+          "prev_page": 30
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-15",
+    "operationId": "listMonitorGroups",
+    "method": "GET",
+    "path": "/boards/{board_id}/monitor_groups",
+    "signature": "{\"errors\":[\"json\",\"json\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      },
+      {
+        "name": "per_page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": [
+          {
+            "id": "x5y2m8nQrS",
+            "name": "Production Services",
+            "position": 1,
+            "created_at": "2025-09-19T09:00:00Z",
+            "updated_at": "2025-09-19T10:30:00Z"
+          }
+        ],
+        "pagination": {
+          "current_page": 30,
+          "per_page": 30,
+          "total_pages": 30,
+          "total_count": 100,
+          "next_page": 30,
+          "prev_page": 30
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-16",
+    "operationId": "createMonitorGroup",
+    "method": "POST",
+    "path": "/boards/{board_id}/monitor_groups",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\"],\"method\":\"POST\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "monitor_group": {
+          "name": "Production Services",
+          "position": 1
+        }
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "x5y2m8nQrS",
+          "name": "Production Services",
+          "position": 1,
+          "created_at": "2025-09-19T09:00:00Z",
+          "updated_at": "2025-09-19T10:30:00Z"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-17",
+    "operationId": "getMonitorGroup",
+    "method": "GET",
+    "path": "/boards/{board_id}/monitor_groups/{id}",
+    "signature": "{\"errors\":[\"json\",\"json\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "id-1"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "x5y2m8nQrS",
+          "name": "Production Services",
+          "position": 1,
+          "created_at": "2025-09-19T09:00:00Z",
+          "updated_at": "2025-09-19T10:30:00Z"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-18",
+    "operationId": "updateMonitorGroup",
+    "method": "PATCH",
+    "path": "/boards/{board_id}/monitor_groups/{id}",
+    "signature": "{\"errors\":[\"json\",\"json\"],\"method\":\"PATCH\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "id-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "monitor_group": {
+          "name": "Production Services",
+          "position": 1
+        }
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "x5y2m8nQrS",
+          "name": "Production Services",
+          "position": 1,
+          "created_at": "2025-09-19T09:00:00Z",
+          "updated_at": "2025-09-19T10:30:00Z"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-19",
+    "operationId": "deleteMonitorGroup",
+    "method": "DELETE",
+    "path": "/boards/{board_id}/monitor_groups/{id}",
+    "signature": "{\"errors\":[\"json\",\"json\"],\"method\":\"DELETE\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "id-1"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-20",
+    "operationId": "listMonitoringRegions",
+    "method": "GET",
+    "path": "/monitoring_regions",
+    "signature": "{\"errors\":[\"empty\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response"
+    ],
+    "parameters": [],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": [
+          {
+            "region_id": "us-east",
+            "dns_name": "monitor-us-east.statusgator.com",
+            "ip_address": "52.1.2.3",
+            "provider": "AWS",
+            "code": "us-east-1",
+            "name": "US East",
+            "desc": "US East (N. Virginia)",
+            "icon_url": "https://statusgator.com/assets/external_logos/aws.png",
+            "color": "#1a5db2"
+          }
+        ]
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-21",
+    "operationId": "getBoardMonitors",
+    "method": "GET",
+    "path": "/boards/{board_id}/monitors",
+    "signature": "{\"errors\":[\"empty\",\"empty\",\"empty\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "status",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "active"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": [
+          {
+            "id": "uVLl2YK1rn",
+            "checked_at": "2025-09-05T23:05:23.463Z",
+            "created_at": "2023-07-06T14:18:35.607Z",
+            "updated_at": "2023-07-06T14:18:35.607Z",
+            "filtered_status": "warn",
+            "description": null,
+            "metadata": {
+              "key": "key"
+            },
+            "unfiltered_status": "warn",
+            "last_message": "CGK (Jakarta) on 2025-09-05",
+            "last_details": "In progress - Scheduled maintenance is currently in progress. We will provide updates as necessary. Sep 05, 2025 - 22:00 UTC",
+            "overridden_message": null,
+            "overridden_status": null,
+            "overrides_locked_at": null,
+            "paused_at": null,
+            "filter_count": 0,
+            "icon_url": "https://favicons-dev.statusgator.com/FiM8Ile0FV3wLjxF.jpg",
+            "position": 3,
+            "monitor_type": "ServiceMonitor",
+            "early_warning_signal": false,
+            "display_name": "Cloudflare",
+            "service": {
+              "id": "PQNMcnNFWw",
+              "name": "Cloudflare",
+              "slug": "cloudflare",
+              "home_page_url": "http://www.cloudflare.com",
+              "status_page_url": "https://www.cloudflarestatus.com",
+              "icon_url": "https://favicons-dev.statusgator.com/FiM8Ile0FV3wLjxF.jpg",
+              "landing_page_url": "https://studio.colinabartlett.com:3004/services/cloudflare",
+              "official": true,
+              "rating": {
+                "letter_grade": "A",
+                "description": "Excellent",
+                "average_delay_minutes": 8.3
+              }
+            },
+            "group": {
+              "id": "k2x9m7nPqR",
+              "name": "Infrastructure",
+              "position": 1
+            }
+          }
+        ]
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-22",
+    "operationId": "listOutageReports",
+    "method": "GET",
+    "path": "/boards/{board_id}/outage_reports",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "since",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "since"
+      },
+      {
+        "name": "page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      },
+      {
+        "name": "per_page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": [
+          {
+            "id": "abc123def",
+            "service": {
+              "id": "k2x9m7nPqR",
+              "name": "Amazon Web Services",
+              "icon_url": "https://statusgator.com/favicons/aws.png",
+              "official": true
+            },
+            "monitor": {
+              "id": "uVLl2YK1rn",
+              "name": "My Website Monitor",
+              "monitor_type": "WebsiteMonitor",
+              "icon_url": "https://statusgator.com/favicons/example.png"
+            },
+            "summary": {
+              "id": "uw2YK1rnl0",
+              "description": "Service down"
+            },
+            "comment": "API returning 500s",
+            "email": "reporter@example.com",
+            "components": [
+              {
+                "id": "k2x9m7nPqR",
+                "name": "API",
+                "group_name": "Core Services"
+              }
+            ],
+            "location": {
+              "city": "Seattle",
+              "region": "Washington",
+              "country": "United States",
+              "country_code": "US"
+            },
+            "confirmed_at": "2023-10-01T12:00:00Z",
+            "created_at": "2023-10-01T12:00:00Z"
+          }
+        ],
+        "pagination": {
+          "current_page": 30,
+          "per_page": 30,
+          "total_pages": 30,
+          "total_count": 100,
+          "next_page": 30,
+          "prev_page": 30
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-23",
+    "operationId": "createOutageReport",
+    "method": "POST",
+    "path": "/boards/{board_id}/outage_reports",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\",\"json\"],\"method\":\"POST\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "outage_report": {
+          "monitor_id": "abc123def",
+          "comment": "API returning 500s",
+          "email": "reporter@example.com",
+          "component_ids": [
+            "comp1",
+            "comp2"
+          ]
+        }
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "abc123def",
+          "service": {
+            "id": "k2x9m7nPqR",
+            "name": "Amazon Web Services",
+            "icon_url": "https://statusgator.com/favicons/aws.png",
+            "official": true
+          },
+          "monitor": {
+            "id": "uVLl2YK1rn",
+            "name": "My Website Monitor",
+            "monitor_type": "WebsiteMonitor",
+            "icon_url": "https://statusgator.com/favicons/example.png"
+          },
+          "summary": {
+            "id": "uw2YK1rnl0",
+            "description": "Service down"
+          },
+          "comment": "API returning 500s",
+          "email": "reporter@example.com",
+          "components": [
+            {
+              "id": "k2x9m7nPqR",
+              "name": "API",
+              "group_name": "Core Services"
+            }
+          ],
+          "location": {
+            "city": "Seattle",
+            "region": "Washington",
+            "country": "United States",
+            "country_code": "US"
+          },
+          "confirmed_at": "2023-10-01T12:00:00Z",
+          "created_at": "2023-10-01T12:00:00Z"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-24",
+    "operationId": "getPingMonitorMetrics",
+    "method": "GET",
+    "path": "/boards/{board_id}/ping_monitors/{id}/metrics",
+    "signature": "{\"errors\":[\"empty\",\"empty\",\"empty\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "id-1"
+      },
+      {
+        "name": "period",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "period"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": true,
+        "data": {
+          "monitor_id": "k2x9m7nPqR",
+          "period": "24h",
+          "summary": [
+            {
+              "region": "eu-west-1",
+              "average_duration": 60,
+              "min_duration": 30,
+              "max_duration": 140,
+              "p95_duration": 110,
+              "p99_duration": 130
+            }
+          ],
+          "data_points": [
+            {
+              "bucket": "2026-06-14T12:00:00Z",
+              "region": "eu-west-1",
+              "average_duration": 58,
+              "p95_duration": 100,
+              "p99_duration": 125
+            }
+          ]
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-25",
+    "operationId": "createPingMonitor",
+    "method": "POST",
+    "path": "/boards/{board_id}/ping_monitors",
+    "signature": "{\"errors\":[\"empty\",\"empty\",\"json\"],\"method\":\"POST\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "name": "My Ping Monitor",
+        "url": "example.com",
+        "description": "Production server monitoring",
+        "check_interval": 5,
+        "check_regions": [
+          "us-east",
+          "us-west"
+        ],
+        "alert_any_location": false,
+        "timeout": 30,
+        "retry_count": 0,
+        "metadata": {},
+        "monitor_group_id": "x5y2m8nQrS"
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "x5y2m8nQrS",
+          "name": "My Ping Monitor",
+          "url": "example.com",
+          "description": "Production server monitoring",
+          "metadata": {
+            "key": "key"
+          },
+          "monitor_group_id": "x5y2m8nQrS",
+          "status": "up",
+          "last_checked_at": "2025-09-19T10:30:00Z",
+          "created_at": "2025-09-19T09:00:00Z",
+          "updated_at": "2025-09-19T10:30:00Z",
+          "check_interval": 5,
+          "check_regions": [
+            "us-east",
+            "us-west"
+          ],
+          "alert_any_location": false,
+          "timeout": 30,
+          "retry_count": 0,
+          "paused_at": null
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-26",
+    "operationId": "updatePingMonitor",
+    "method": "PATCH",
+    "path": "/boards/{board_id}/ping_monitors/{id}",
+    "signature": "{\"errors\":[\"empty\",\"empty\",\"json\"],\"method\":\"PATCH\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "id-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "name": "Updated Ping Monitor",
+        "url": "updated-example.com",
+        "description": "Updated production server monitoring",
+        "check_interval": 3,
+        "check_regions": [
+          "us-east",
+          "eu-west"
+        ],
+        "alert_any_location": true,
+        "timeout": 60,
+        "retry_count": 2,
+        "metadata": {},
+        "monitor_group_id": "x5y2m8nQrS"
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "x5y2m8nQrS",
+          "name": "My Ping Monitor",
+          "url": "example.com",
+          "description": "Production server monitoring",
+          "metadata": {
+            "key": "key"
+          },
+          "monitor_group_id": "x5y2m8nQrS",
+          "status": "up",
+          "last_checked_at": "2025-09-19T10:30:00Z",
+          "created_at": "2025-09-19T09:00:00Z",
+          "updated_at": "2025-09-19T10:30:00Z",
+          "check_interval": 5,
+          "check_regions": [
+            "us-east",
+            "us-west"
+          ],
+          "alert_any_location": false,
+          "timeout": 30,
+          "retry_count": 0,
+          "paused_at": null
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-27",
+    "operationId": "pausePingMonitor",
+    "method": "POST",
+    "path": "/boards/{board_id}/ping_monitors/{id}/pause",
+    "signature": "{\"errors\":[\"empty\",\"empty\"],\"method\":\"POST\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "id-1"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "x5y2m8nQrS",
+          "name": "My Ping Monitor",
+          "url": "example.com",
+          "description": "Production server monitoring",
+          "metadata": {
+            "key": "key"
+          },
+          "monitor_group_id": "x5y2m8nQrS",
+          "status": "up",
+          "last_checked_at": "2025-09-19T10:30:00Z",
+          "created_at": "2025-09-19T09:00:00Z",
+          "updated_at": "2025-09-19T10:30:00Z",
+          "check_interval": 5,
+          "check_regions": [
+            "us-east",
+            "us-west"
+          ],
+          "alert_any_location": false,
+          "timeout": 30,
+          "retry_count": 0,
+          "paused_at": null
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-28",
+    "operationId": "ping",
+    "method": "GET",
+    "path": "/ping",
+    "signature": "{\"errors\":[\"empty\",\"json\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response"
+    ],
+    "parameters": [],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "message": "pong",
+          "organization": {
+            "id": "k2x9m7nPqR",
+            "name": "Acme Inc",
+            "timezone": "America/New_York"
+          },
+          "token": {
+            "id": "p8Wq3rTv5Z",
+            "name": "Integration token",
+            "scope": "organization",
+            "permission": "full",
+            "source": "dashboard",
+            "created_at": "2025-01-15T10:30:00Z",
+            "expires_at": "2026-01-15T10:30:00Z",
+            "user": {
+              "id": "k2x9m7nPqR",
+              "email": "user@example.com"
+            }
+          }
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-29",
+    "operationId": "updateServiceMonitor",
+    "method": "PATCH",
+    "path": "/boards/{board_id}/service_monitors/{id}",
+    "signature": "{\"errors\":[\"empty\",\"json\"],\"method\":\"PATCH\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "id-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "name": "GitHub Status",
+        "description": "Updated description",
+        "metadata": {},
+        "monitor_group_id": "x5y2m8nQrS"
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": {
+          "id": "x5y2m8nQrS",
+          "name": "GitHub",
+          "description": "Monitor GitHub status page",
+          "metadata": {
+            "key": "key"
+          },
+          "monitor_group_id": "x5y2m8nQrS",
+          "service_id": "abc123xyz",
+          "created_at": "2025-09-19T09:00:00Z",
+          "updated_at": "2025-09-19T10:30:00Z"
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-30",
+    "operationId": "listMonitorRelationships",
+    "method": "GET",
+    "path": "/boards/{board_id}/monitors/{monitor_id}/relationships",
+    "signature": "{\"errors\":[\"empty\",\"empty\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "path-serialization",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      },
+      {
+        "name": "monitor_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "monitor-1"
+      },
+      {
+        "name": "page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      },
+      {
+        "name": "per_page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": [
+          {
+            "id": "aBcD1234eF",
+            "relationship_type": "depends_on",
+            "service": {
+              "id": "k2x9m7nPqR",
+              "name": "Amazon Web Services",
+              "icon_url": "https://statusgator.com/favicons/aws.png",
+              "official": true
+            },
+            "monitor": {
+              "id": "uVLl2YK1rn",
+              "name": "My Website Monitor",
+              "monitor_type": "WebsiteMonitor",
+              "icon_url": "https://statusgator.com/favicons/example.png"
+            },
+            "source": {
+              "method": "manual"
+            },
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z"
+          }
+        ],
+        "pagination": {
+          "current_page": 30,
+          "per_page": 30,
+          "total_pages": 30,
+          "total_count": 100,
+          "next_page": 30,
+          "prev_page": 30
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-31",
+    "operationId": "listServices",
+    "method": "GET",
+    "path": "/services",
+    "signature": "{\"errors\":[\"empty\",\"empty\",\"empty\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"},{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      },
+      {
+        "name": "per_page",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": 30
+      },
+      {
+        "name": "created_after",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "created_after"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": [
+          {
+            "id": "k2x9m7nPqR",
+            "name": "GitHub",
+            "public_url": "https://www.githubstatus.com/",
+            "home_page_url": "https://github.com",
+            "description": "GitHub is a web-based version control and collaboration platform for software developers.",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z",
+            "icon_url": "https://statusgator.com/favicons/github.png",
+            "landing_page_url": "https://statusgator.com/services/github",
+            "category_names": [
+              "Development Tools",
+              "Version Control"
+            ],
+            "official": true,
+            "rating": {
+              "letter_grade": "A",
+              "description": "Excellent",
+              "average_delay_minutes": 8.3
+            }
+          }
+        ],
+        "pagination": {
+          "current_page": 30,
+          "per_page": 30,
+          "total_pages": 30,
+          "total_count": 100,
+          "next_page": 30,
+          "prev_page": 30
+        }
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-32",
+    "operationId": "searchServices",
+    "method": "GET",
+    "path": "/services/search",
+    "signature": "{\"errors\":[\"empty\"],\"method\":\"GET\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":true,\"location\":\"query\",\"required\":false,\"style\":\"form\"}],\"request\":[],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-response",
+      "query-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "q",
+        "location": "query",
+        "required": false,
+        "style": "form",
+        "explode": true,
+        "jsonContent": false,
+        "value": "q"
+      }
+    ],
+    "request": null,
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false,
+        "data": [
+          {
+            "id": "k2x9m7nPqR",
+            "name": "GitHub",
+            "public_url": "https://www.githubstatus.com/",
+            "home_page_url": "https://github.com",
+            "description": "GitHub is a web-based version control and collaboration platform for software developers.",
+            "created_at": "2025-09-12T12:35:54Z",
+            "updated_at": "2025-09-12T12:40:54Z",
+            "icon_url": "https://statusgator.com/favicons/github.png",
+            "landing_page_url": "https://statusgator.com/services/github",
+            "category_names": [
+              "Development Tools",
+              "Version Control"
+            ],
+            "official": true,
+            "rating": {
+              "letter_grade": "A",
+              "description": "Excellent",
+              "average_delay_minutes": 8.3
+            }
+          }
+        ]
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-33",
+    "operationId": "createStatusPageSubscriber",
+    "method": "POST",
+    "path": "/boards/{board_id}/status_page_subscribers",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\"],\"method\":\"POST\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"empty\",\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "empty-response",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "subscriber": {
+          "email": "user@example.com",
+          "skip_confirmation": false,
+          "monitor_ids": [
+            "m2z5x3nOJa",
+            "k9p8q7rStU"
+          ]
+        }
+      }
+    },
+    "response": {
+      "mediaType": null,
+      "kind": "empty",
+      "value": null
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  },
+  {
+    "id": "behavior-34",
+    "operationId": "deleteStatusPageSubscriber",
+    "method": "DELETE",
+    "path": "/boards/{board_id}/status_page_subscribers",
+    "signature": "{\"errors\":[\"json\",\"json\",\"json\"],\"method\":\"DELETE\",\"nullable\":false,\"pagination\":null,\"parameters\":[{\"array\":false,\"explode\":false,\"location\":\"path\",\"required\":true,\"style\":\"simple\"}],\"request\":[\"json\"],\"response\":[\"json\"],\"security\":[{\"bearerAuth\":[]}],\"streaming\":false}",
+    "kinds": [
+      "auth-application",
+      "error-response",
+      "json-request",
+      "json-response",
+      "path-serialization"
+    ],
+    "parameters": [
+      {
+        "name": "board_id",
+        "location": "path",
+        "required": true,
+        "style": "simple",
+        "explode": false,
+        "jsonContent": false,
+        "value": "board-1"
+      }
+    ],
+    "request": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "id": "m2z5x3nOJa",
+        "email": "user@example.com"
+      }
+    },
+    "response": {
+      "mediaType": "application/json",
+      "kind": "json",
+      "value": {
+        "success": false
+      }
+    },
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "securitySchemes": [
+      {
+        "name": "bearerAuth",
+        "fieldName": "bearerAuth",
+        "scheme": {
+          "type": "http",
+          "scheme": "bearer"
+        },
+        "genericBearerFieldName": "bearerAuth"
+      }
+    ],
+    "pagination": null
+  }
+]
